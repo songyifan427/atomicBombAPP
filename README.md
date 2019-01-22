@@ -1,0 +1,2 @@
+# atomicBombAPP
+this is readme
