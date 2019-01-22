@@ -1,0 +1,105 @@
+/*
+* @Author: Administrator
+* @Date:   2018-07-28 20:54:50
+* @Last Modified by:   Administrator
+* @Last Modified time: 2018-08-03 09:06:19
+*/
+@import url('base.css');
+*{
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+body,html{
+    width: 100%;
+    height: 100%;
+}
+.shuru{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: rgba(246, 247, 248, 0.9);
+    padding-top: 0.77rem;
+    box-sizing: border-box;
+    display: none;
+}
+.img11{
+    height: 0.16rem;
+    width: 0.22rem;
+    margin-left: 0.24rem;
+}
+.zi{
+    width: 1.5rem;
+    height: 0.2rem;
+    font-size: 0.2rem;
+    margin-top: 0.12rem;
+    float: right;
+    margin-right: 0.2rem;
+    font-weight: bolder;
+}
+.aa{
+    color:#B3B3B3;
+}
+.bb{
+    color:#B3B3B3;
+}
+.cc{
+    color:#B3B3B3;
+}
+.ru{
+    width: 6.71rem;
+    height: 6.31rem;
+    margin-left: 0.44rem;
+    margin-top: 0.5rem;
+    position: relative;
+    
+}
+.c_content{
+    width: 6.71rem;
+    height: 6.31rem;
+    padding-left: 0.54rem;
+    padding-top: 0.48rem;
+    border: none;
+    box-sizing: border-box;
+}
+textarea::-webkit-input-placeholder {
+    color: #D5D5D5 !important;
+    font-weight: bolder;
+}
+.y{
+    width: 0.08rem;
+    height: 0.08rem;
+    position: absolute;
+    top: 0.6rem;
+    left: 0.36rem;
+}
+.m{
+    width: 0.77rem;
+    height: 0.77rem;
+    position: absolute;
+    left: 0.36rem;
+    bottom: 0.32rem;
+}
+.n{
+    width: 0.5rem;
+    height: 0.5rem;
+    position: absolute;
+    right: 1.84rem;
+    bottom: 0.32rem;
+}
+.v{
+    width: 0.5rem;
+    height: 0.5rem;
+    position: absolute;
+    right: 1.07rem;
+    bottom: 0.32rem;
+}
+.x{
+    width: 0.5rem;
+    height: 0.5rem;
+    position: absolute;
+    right: 0.3rem;
+    bottom: 0.32rem;
+}

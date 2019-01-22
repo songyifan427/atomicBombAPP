@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="../static/css/myself.css">
+    <script src="../static/js/jquery.js"></script>
+    <script src="../static/js/rem.js"></script>
+    <title>Document</title>
+</head>
+<style>
+.bottom{
+    width: 100%;
+    height: 1rem;
+    background: #fefefe;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+}
+.bottom div{
+    width: 25%;
+}
+.bottom .searchbox{
+    width: 25%;
+    height: 100%;
+    border-bottom: 0.04rem solid #74affd;
+    box-sizing: border-box;
+}
+.bottom .searchboximg{
+    display: block;
+    margin-top: 0.1rem;
+    margin-left: 0.55rem;
+}
+.bottom .talk{
+    position: relative;
+}
+
+
+</style>
+<body>
+    <div class="top">
+        <div class=back></div>
+        <div class="shezhi">
+            <a href="/setting" style="display:block;width: 100%;height: 0.9rem;;">
+                <img src="../static/img/imgs/Icon_Settings@2x.png" alt="" width="45" height="45" style="display:block">
+            </a>
+            <a href="/setting/myinfo" style="display:block;width: 100%;height: 0.9rem;;">
+                <img src="../static/img/imgs/tuceng53.png" alt="" width="45" height="45" style="display:block">
+            </a>
+        </div>
+        <div class="headImg">
+            <img src="../static/img/head/{{  data.headurl }}" alt="" class="hImg" width="96" height="96">
+        </div>
+        <img src="../static/img/imgs/tuceng55.png" alt="" width="25" height="25" class="sexImg">
+        <div class="uname">{{ data.username }}</div>
+        <div class="xj">星级</div>
+        <div class="star">
+            {% if data.stars == 0 %}
+            <img src="../static/img/imgs/xz3.png" alt="" width="15" height="15" style="display:block;float: left;">
+            <img src="../static/img/imgs/xz3.png" alt="" width="15" height="15" style="display:block;float: left;">
+            <img src="../static/img/imgs/xz3.png" alt="" width="15" height="15" style="display:block;float: left;">
+            <img src="../static/img/imgs/xz3.png" alt="" width="15" height="15" style="display:block;float: left;">
+            <img src="../static/img/imgs/xz3.png" alt="" width="15" height="15" style="display:block;float: left;">
+            {% elif data.stars == 1 %}
+            <img src="../static/img/imgs/xz2.png" alt="" width="15" height="15" style="display:block;float: left;">
+            <img src="../static/img/imgs/xz3.png" alt="" width="15" height="15" style="display:block;float: left;">
+            <img src="../static/img/imgs/xz3.png" alt="" width="15" height="15" style="display:block;float: left;">
+            <img src="../static/img/imgs/xz3.png" alt="" width="15" height="15" style="display:block;float: left;">
+            <img src="../static/img/imgs/xz3.png" alt="" width="15" height="15" style="display:block;float: left;">
+            {% elif data.stars == 2 %}
+            <img src="../static/img/imgs/xz2.png" alt="" width="15" height="15" style="display:block;float: left;">
+            <img src="../static/img/imgs/xz2.png" alt="" width="15" height="15" style="display:block;float: left;">
+            <img src="../static/img/imgs/xz3.png" alt="" width="15" height="15" style="display:block;float: left;">
+            <img src="../static/img/imgs/xz3.png" alt="" width="15" height="15" style="display:block;float: left;">
+            <img src="../static/img/imgs/xz3.png" alt="" width="15" height="15" style="display:block;float: left;">
+            {% elif data.stars == 3 %}
+            <img src="../static/img/imgs/xz2.png" alt="" width="15" height="15" style="display:block;float: left;">
+            <img src="../static/img/imgs/xz2.png" alt="" width="15" height="15" style="display:block;float: left;">
+            <img src="../static/img/imgs/xz2.png" alt="" width="15" height="15" style="display:block;float: left;">
+            <img src="../static/img/imgs/xz3.png" alt="" width="15" height="15" style="display:block;float: left;">
+            <img src="../static/img/imgs/xz3.png" alt="" width="15" height="15" style="display:block;float: left;"
+            >{% elif data.stars == 4 %}
+            <img src="../static/img/imgs/xz2.png" alt="" width="15" height="15" style="display:block;float: left;">
+            <img src="../static/img/imgs/xz2.png" alt="" width="15" height="15" style="display:block;float: left;">
+            <img src="../static/img/imgs/xz2.png" alt="" width="15" height="15" style="display:block;float: left;">
+            <img src="../static/img/imgs/xz2.png" alt="" width="15" height="15" style="display:block;float: left;">
+            <img src="../static/img/imgs/xz3.png" alt="" width="15" height="15" style="display:block;float: left;">
+            {% else %}
+            <img src="../static/img/imgs/xz2.png" alt="" width="15" height="15" style="display:block;float: left;">
+            <img src="../static/img/imgs/xz2.png" alt="" width="15" height="15" style="display:block;float: left;">
+            <img src="../static/img/imgs/xz2.png" alt="" width="15" height="15" style="display:block;float: left;">
+            <img src="../static/img/imgs/xz2.png" alt="" width="15" height="15" style="display:block;float: left;">
+            <img src="../static/img/imgs/xz2.png" alt="" width="15" height="15" style="display:block;float: left;">
+            {% endif %}
+            
+        </div>
+        <div class="fens">
+            <div style="float:left;width:1.81rem;height:100%">
+                <a href="/fallow">
+                <div class="shuzi" style="float:left;color: #4481FF;">{{ data.fallownum }}</div>
+                <div style="float: right;">
+                    <div style="font-size:0.2rem;text-align: center;font-weight: 500;color: #838DA5">关注</div>
+                    <div style="font-size:0.11rem;color: #838DA5">FALLOWS</div>
+                </div>
+                </a>
+            </div>
+            <div style="float: right;;width:1.23rem;height:100%">
+                <a href="/fans">
+                <div class="shuzi" style="float:left;color: #FF649B;">{{ data.fansnum }}</div>
+                <div style="float: right;">
+                    <div style="font-size:0.2rem;text-align: center;font-weight: 500;color: #838DA5">粉丝</div>
+                    <div style="font-size:0.11rem;color: #838DA5">FANS</div>
+                </div>
+                </a>
+            </div>
+        </div>
+        <div class="tiao"></div>
+    </div>
+    <div class="xia">
+        <div class="ziliao">
+            <div class="ziliao_con">
+                <img src="../static/img/imgs/xz7.png" alt="" style="display:block;float:left;margin-top: 0.3rem;margin-left: 0.3rem">
+                <div class='zl_con' style="float:left;margin-left: 0.6rem;margin-top: 0.2rem" ><p style="font-size:0.35rem;font-weight: 600;color:#FF649B">我的资料</p></div>
+                <img src="../static/img/imgs/xz6.png" alt="" style="display:block;float:left;margin-top: 0.3rem;margin-left: 0.6rem">
+            </div>
+        </div>
+        <div class="xiangqing">
+            <div class="myfabu">
+                <a href="/myarticles">
+                    <img src="../static/img/imgs/yj1.png" alt="" width="60" height="60">
+                    <p style="font-size:0.23rem;font-weight: 600;color:#8A8A8A;text-align: center">我的发布</p>
+                </a>
+            </div>
+            <div class="mylike">
+                <a href="/fallow">
+                    <img src="../static/img/imgs/xz1.png" alt="" width="60" height="60">
+                    <p style="font-size:0.23rem;font-weight: 600;color:#8A8A8A;text-align: center">我的喜欢</p>
+                </a>
+            </div>
+            <div class="mytix">
+                <a href="/notice">
+                    <img src="../static/img/imgs/lingdang.png" alt="" width="60" height="60">
+                    <p style="font-size:0.23rem;font-weight: 600;color:#8A8A8A;text-align: center">我的提醒</p>
+                </a>
+            </div>
+        </div>
+
+    </div>
+    <div class="bottom">
+        <div class="house">
+            <a href="/">
+                <img src="../static/img/index49.png" alt="" class="searchboximg">
+            </a>
+        </div>
+        <div class="myself">
+            <a href="/search">
+                <img src="../static/img/xinzhuang49@2x.png" alt="" class="searchboximg">
+            </a>
+        </div>
+        <div class="talk">
+            <a href="/message">
+                <img src="../static/img/xinzhuang86@2x.png" alt="" class="searchboximg">
+            </a>
+        </div>
+        <div class="searchbox">
+            <a href="/aboutme">
+                <img src="../static/img/Icon_User2@2x.png" alt="" class="searchboximg">
+            </a>
+        </div>
+    </div>
+</body>
+</html>

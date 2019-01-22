@@ -1,0 +1,116 @@
+*{
+    margin:0;
+    padding:0;
+    list-style: none;
+}
+a{
+    text-decoration: none;
+}
+img{
+    display: block;
+}
+html,body{
+    background-color: #ffffff;
+}
+.top{
+    width: 100%;
+    height: 1rem;
+    position: relative;
+}
+.top img{
+    width: 0.2rem;
+    height: 0.16rem;
+    position: absolute;
+    top: 0.36rem;
+    left: 0.24rem;
+}
+.top span{
+    display: block;
+    font-size: 0.32rem;
+    color: #ff649b;
+    text-align: center;
+    line-height: 1rem;
+}
+.center{
+    width: 100%;
+    min-height: 100%;
+    background: #f5f5f5;
+    border-top: 0.2rem solid #f5f5f5;
+}
+.center .other{
+    width: 7.02rem;
+    height: auto;
+    margin: 0 auto;
+}
+.center .other .point{
+    width: 100%;
+    height: 1.28rem;
+    background: #fff;
+    margin-bottom: 0.04rem;
+    position: relative;
+}
+.center .other .point img:nth-child(1){
+    width: 0.7rem;
+    height: 0.7rem;
+    border-radius: 50%;
+    position: absolute;
+    top: 0.29rem;
+    left: 0.36rem;
+}
+.center .other .point .color{
+    width: 0.8rem;
+    height: 0.8rem;
+    border-radius: 0.03rem;
+    background: #ffeff5;
+    position: absolute;
+    top: 0.34rem;
+    right: 0.5rem;
+}
+.center .other .point img:nth-child(4){
+    width: 0.8rem;
+    height: 0.8rem;
+    border-radius: 0.03rem;
+    position: absolute;
+    top: 0.24rem;
+    right: 0.6rem;
+}
+.center .other .point .cen{
+    width: 4.31rem;
+    height: 0.53rem;
+    position: absolute;
+    top: 0.42rem;
+    left: 1.2rem;
+    position: relative;
+}
+.center .other .point .cen span:nth-child(1){
+    font-size: 0.24rem;
+    color: #666666;
+    float: left;
+}
+.center .other .point .cen .like{
+    width: 100%;
+    height: 0.19rem;
+    position: absolute;
+    bottom: 0;
+    left: 0
+}
+.center .other .point .cen .like .son{
+    width: 0.05rem;
+    height: 0.05rem;
+    background: #ffc426;
+    border-radius: 50%;
+    margin-top: 0.07rem;
+    float: left;
+}
+.center .other .point .cen .like span:nth-child(2){
+    font-size: 0.19rem;
+    color: #9f9f9f;
+    float: left;
+    margin-left: 0.05rem;
+}
+.center .other .point .cen .like span:nth-child(3){
+    font-size: 0.13rem;
+    color: #b2b2b2;
+    float: right;
+    margin-top: 0.03rem;
+}

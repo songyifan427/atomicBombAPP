@@ -1,0 +1,264 @@
+*{
+    margin:0;
+    padding:0;
+    list-style: none;
+}
+a{
+    text-decoration: none;
+}
+img{
+    display: block;
+}
+html,body{
+    background-color: #ffffff;
+}
+.top{
+    width: 100%;
+    height: 0.74rem;
+    overflow: hidden;
+}
+.top img{
+    width: 1.97rem;
+    height: 0.30rem;
+    margin: 0.22rem auto;
+}
+.two{
+    width: 100%;
+    height: 0.61rem;
+    overflow: hidden;
+    margin-bottom: 0.25rem;
+}
+.two .two_center{
+    width: 4.23rem;
+    height: 0.61rem;
+    overflow: hidden;
+    display: flex;
+    justify-content: space-around;
+    margin: 0 auto;
+}
+.two .recommend{
+    position: relative;
+    width: 2rem;
+    height: 0.61rem;
+    border-radius: 0.25rem;
+    border: 0.03rem solid #ffe4f0;
+    box-sizing: border-box;
+}
+.two .cc{
+    width: 0.81rem;
+    height: 0.24rem;
+    margin: 0 auto;
+    margin-top: 0.18rem;
+    display: flex;
+    justify-content: space-between;
+}
+.two span{
+    display: block;
+    font-size: 0.24rem;
+    color: #ff76b3;
+    line-height: 0.24rem;
+    text-align: center;
+    margin-top: -0.03rem;
+}
+.two .attention span{
+    color: #fff;
+    line-height: 0.24rem;
+    margin-top: -0.03rem;
+}
+.two .btn{
+    width: 0.05rem;
+    height: 0.05rem;
+    border-radius: 50%;
+    background: #ffffff;
+    margin-top: 0.1rem;
+}
+.two .attention{
+    width: 2rem;
+    right: 0.61rem;
+    border-radius: 0.25rem;
+    border: 0.03rem solid #ffe4f0;
+    box-sizing: border-box;
+    background: linear-gradient(to right,#ff7bb9,#ff639b);
+}
+.attentions{
+    width: 100%;
+    height: auto;
+    background: #fafafa;
+}
+.attentions .atten{
+    width: 7.02rem;
+    height: 3.2rem;
+    background: #fff;
+    margin: 0.36rem auto;
+    border-radius: 0.05rem;
+    position: relative;
+    overflow: hidden;
+}
+.attentions .atten img{
+    /* width: 7.02rem;
+    height: 3.2rem; */
+    border-radius: 0.05rem;
+    margin: 0 auto;
+}
+.imgkuang{
+    width: 7.02rem;
+    height: 3.2rem;
+}
+/* .attentions .atten:nth-child(1) img{
+    width: 4.2rem;
+    height: 3.2rem;
+}
+.attentions .atten:nth-child(1) #img1{
+    width: 0.98rem;
+    height: 0.98rem;
+    position: absolute;
+    top: 1.1rem;
+    left: 2.89rem;
+}
+.attentions .atten:nth-child(1) .ship{
+    width: 0.7rem;
+    height: 0.35rem;
+    position: absolute;
+    top: 0.12rem;
+    right: 0.19rem;
+    background: #ffe9ee;
+    color: #ff396c;
+    font-size: 0.17rem;
+    text-align: center;
+    line-height: 0.35rem;
+    border-radius: 0.12rem;
+}
+.attentions .atten:nth-child(2) #img01{
+    width: 10rem;
+    height: 4rem;
+    margin-left: -1.5rem;
+}
+.attentions .atten:nth-child(4) #img1{
+    width: 0.31rem;
+    height: 0.36rem;
+    position: absolute;
+    top: 1.25rem;
+    left: 3.34rem;
+}
+.attentions .atten:nth-child(4) .ship{
+    width: 0.7rem;
+    height: 0.35rem;
+    position: absolute;
+    top: 0.12rem;
+    right: 0.19rem;
+    background: #fe648a;
+    color: #fdfefe;
+    font-size: 0.17rem;
+    text-align: center;
+    line-height: 0.35rem;
+    border-radius: 0.12rem;
+}
+.attentions .atten:nth-child(5) #img01{
+    width: 7.5rem;
+    height: 6rem;
+    margin-top: -2.2rem;
+    margin-left: -0.2rem;
+} */
+.attentions .atten .shouxia{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 0.98rem;
+    border-radius: 0.05rem;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+    background: rgb(0, 0, 0,0.2)
+}
+.attentions .atten .shouxia #img43{
+    width: 0.76rem;
+    height: 0.76rem;
+    border-radius: 50%;
+    position: absolute;
+    top: 0.11rem;
+    left: 0.36rem;
+}
+.attentions .atten .shouxia .Chris{
+    width: 5.35rem;
+    height: 0.75rem;
+    position: absolute;
+    top: 0.11rem;
+    left: 1.3rem;
+    display: flex;
+    flex-direction:column;
+    justify-content: space-between;
+}
+.attentions .atten .shouxia .Chris .shang{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    height: 0.44rem;
+}
+.attentions .atten .shouxia .Chris .shang .name{
+    width: 3.5rem;
+    height: 100%;
+    font-size: 0.26rem;
+    line-height: 0.44rem;
+    color: rgb(255, 255, 255,0.8);
+}
+.attentions .atten .shouxia .Chris .shang .data{
+    width: 0.86rem;
+    height: 0.14rem;
+    font-size: 0.14rem;
+    color: rgb(255, 255, 255,0.6);
+}
+.attentions .atten .shouxia .Chris .xia{
+    width: 100%;
+    height: 0.35rem;
+    display: flex;
+    justify-content: space-between;
+}
+.attentions .atten .shouxia .Chris .xia .ch{
+    color: #dbd0c8;
+    font-size: 0.18rem;
+    line-height: 0.35rem;
+}
+.attentions .atten .shouxia .Chris .xia .other{
+    width: 2.24rem;
+    height: 0.18rem;
+    display: flex;
+    justify-content: space-between;
+}
+.attentions .atten .shouxia .Chris .xia .other img{
+    width: 0.4rem;
+    height: 0.35rem;
+    float: left;
+}
+.attentions .atten .shouxia .Chris .xia .other div{
+    height: 0.38rem;
+}
+.attentions .atten .shouxia .Chris .xia .other span{
+    font-size: 0.15rem;
+    color: #b2b2b2;
+    float: left;
+}
+.attentions .dixian{
+    margin-top: 0.36rem; 
+    width: 100%;
+    height: 0.67rem;
+    overflow: hidden;
+}
+.attentions .dixian .lines{
+    width: 4.12rem;
+    height: 0.16rem;
+    display: flex;
+    justify-content: space-between;
+    margin: 0.27rem auto 0;
+    overflow: hidden;
+}
+.attentions .dixian .lines .line{
+    width: 1.26rem;
+    height: 0.01rem;
+    background: #f1f1f1;
+    margin-top: 0.09rem;
+}
+.attentions .dixian .lines span{
+    display: block;
+    color: #e9e9e9;
+    font-size: 0.08rem;
+}

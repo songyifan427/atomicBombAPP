@@ -1,0 +1,49 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+a{
+    text-decoration: none;
+}
+body{
+    width: 100%;
+    height: 100%;
+    background: #F2F2F2;
+}
+.header{
+    display: block;
+    width: 100%;
+    height: 1.3rem;
+    overflow: hidden;
+    /* box-shadow: 0 0 0.1rem #333; */
+    background: white;
+}
+.header_con{
+    width: 7rem;
+    height: 0.35rem;
+    margin: 0 auto;
+    margin-top: 0.7rem;
+}
+.header_con .header_con_left{
+    width: 0.35rem;
+    height: 0.35rem;    
+    float: left;
+}
+.header_con .header_con_text{
+    width: 6.65rem;
+    height: 0.35rem;
+    float: left;
+    font-size: 0.35rem;
+    font-weight: 600;
+    text-align: center;
+    float: left;
+    color: #f993bd;
+}
+.sty{
+    width: 7.03rem;
+    height: 1.05rem;
+    background: white;
+    border-radius: 0.05rem; 
+    margin: 0 auto;
+    margin-top: 0.12rem;
+}

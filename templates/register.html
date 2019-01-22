@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="../static/js/rem.js"></script>
+    <script src="../static/js/jquery-3.2.1.js"></script>
+    <script src="../static/js/register.js"></script>
+    <link rel="stylesheet" href="../static/css/register.css">
+</head>
+<body>
+    <div class="nav">
+            <div class="return"><a href="history.back()"></a></div>
+        <div class="reg"><a href="javascript:;">注册</a>  </div>
+    
+    </div>
+    <main>
+        <div class="circle">
+                <div class="left"></div>
+                <div class="right"></div>
+                <div class="step">
+                    <div class="step1">
+                        <div class="img">
+                                <div class="yuan">
+                        
+                                    </div>
+                        </div>
+                        <div class="word">基本信息填写</div>
+                    </div>
+                    <div class="step2">
+                        <div class="img"> <div class="yuan">
+                        
+                            </div></div>
+                        <div class="word"></div>
+
+                    </div>
+                    <div class="step2">
+                        <div class="img"></div>
+                        <div class="word"></div>
+                    </div>
+                </div>
+        </div>
+        <form action="/register" method="post">
+            <div class="entry">
+                <div class="phone">
+                    <div class="ph_img"></div>
+                    <input id='phone' type="text" placeholder="请在此填写您的手机号码" name="usertel">
+                    <div class="tip"></div>
+                    <div class="tip2"></div>
+                    <div class="tipwords">
+                            <div class="fuhao"></div>
+                            <div class="words">手机号不符合规范，请重新输入</div>
+                    </div>
+                    {% if isRepeat %}
+                    <div class="tipwords2">
+                            <div class="fuhao"></div>
+                            <div class="words">手机号已被注册</div>
+                    </div>
+                    {% endif %}
+                </div>
+                <div class="password p1">
+                    <div class="pw_img"></div>
+                    <input id='pw' type="password" placeholder="请输入6-12位的数字或字母密码" name="password">
+                    <div class="tip"></div>
+                    <div class="tip2"></div>
+                    <div class="tipwords">
+                            <div class="fuhao"></div>
+                            <div class="words">密码格式不符合要求，请重新输入</div>
+                    </div>
+                </div>
+                <div class="password p2">
+                    <div class="pw_img"></div>
+                    <input id='pw2' type="password" placeholder="请再次确认密码" name="repassword">
+                    <div class="tip"></div>
+                    <div class="tip2"></div>
+                    <div class="tipwords">
+                        <div class="fuhao"></div>
+                        <div class="words">您两次输入的密码不一致，请重新输入</div>
+                    </div>
+                </div>
+            </div>
+            <button class="login" disabled>下一步</button>
+        </form>
+    </main>
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="../static/css/myfabu.css">
+    <script src="../static/js/jquery.js"></script>
+    <script src="../static/js/rem.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <div class="header">
+        <div class="header_con">
+            <a href="javascript:history.back();">
+                <div class="header_con_left">
+                    <img src="../static/img/imgs/xz4.png" alt="" width="16" height="16" style="display:block">
+                </div>
+            </a>
+            <div class="header_con_text">我的提醒</div>
+    </div>
+    </div>
+    <main>
+        {% for item in data %}
+        <div class="sty" style="margin-top:0.3rem;">
+            <a href="">
+                <img src="../static/img/head/{{ item.imgurl }}" alt="" class="img_1" width="50" height="50" style="display:block;float:left;">
+                <div style="float:left">
+                    <p style="display:block;float:left;font-size: 0.15rem;font-weight: 600;color: #666666;margin-left: 0.15rem;margin-top:0.4rem ">{{ item.a_time }}</p>
+                    <p style="display:block;float:right;font-size: 0.25rem;font-weight: 600;color: #666666;margin-left: 0.55rem;margin-top:0.38rem ">{{ item.title }}</p>
+                </div>
+                <img src="../static/img/imgs/more12@2x.png" alt="" class='img_2' style="display:block;float: right;margin-right:0.15rem;margin-top: 0.2rem " width="35" height="35">
+            </a> 
+        </div>
+        {% endfor %}
+        </main>
+</body>
+</html>

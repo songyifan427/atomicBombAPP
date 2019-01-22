@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="../static/js/rem.js"></script>
+    <link rel="stylesheet" href="../static/css/index2.css">
+</head>
+<style>
+.bottom{
+    width: 100%;
+    height: 1rem;
+    background: #fefefe;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+}
+.bottom div{
+    width: 25%;
+}
+.bottom .searchbox{
+    width: 25%;
+    height: 100%;
+    border-bottom: 0.04rem solid #74affd;
+    box-sizing: border-box;
+}
+.bottom .searchboximg{
+    display: block;
+    margin-top: 0.1rem;
+    margin-left: 0.55rem;
+}
+.bottom .talk{
+    position: relative;
+}
+
+
+</style>
+<body>
+    <div class="top">
+        <img src="../static/img/Bomb@2x.png" alt="">
+    </div>
+    <div class="two">
+        <div class="two_center">
+            <div class="recommend">
+                <a href="/">
+                    <div class="cc">
+                        <div class="btn"></div>
+                        <span class="tui">推荐</span>
+                        <div class="btn"></div>
+                    </div>
+                </a>
+            </div>
+            <div class="attention">
+                <a href="javascript:;">
+                <div class="cc">
+                        <div class="btn"></div>
+                        <span class="guan">关注</span>
+                        <div class="btn"></div>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+    <div class="attentions">
+        {% for item in data %}
+            <div class="atten">
+                <a href="/article/{{ item.articleid }}">
+                    <div class="imgkuang">
+                        <img src="../static/img/articleurl/{{ item.imgurl }}" alt="">
+                    </div>
+                </a>
+                <div class="shouxia">
+                    <a href="/user/{{ item.userid }}">
+                        <img src="../static/img/head/{{ item.headurl }}" alt="" id="img43">
+                    </a>
+                    <div class="Chris">
+                        <div class="shang"> 
+                            <span class="name">{{ item.title }}</span>
+                            <span class="data">{{ item.a_time }}</span>
+                        </div>
+                        <div class="xia">
+                            <a href="/user/{{ item.userid }}">
+                                <span class="ch">{{ item.username }}</span>
+                            </a>
+                            <div class="other">
+                                <a href="javascript:;">
+                                    <img src="../static/img/fenxiang.png" alt="">
+                                </a>
+                                <div class="pinglun">
+                                    <img src="../static/img/Icon_Dialogue@2x.png" alt="">
+                                    <span>{{ item.fallow }}</span>
+                                </div>
+                                <div class="love">
+                                    <img src="../static/img/xinzhuang11@2x.png" alt="">
+                                    <span>{{ item.fans }}</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+        <div class="dixian">
+            <div class="lines">
+                <div class="line"></div>
+                <span>我可是很有底线的</span>
+                <div class="line"></div>
+            </div>
+        </div>
+    </div>
+    <div class="bottom">
+        <div class="searchbox">
+            <a href="/">
+                <img src="../static/img/Icon_Home@2x.png" alt="" class="searchboximg">
+            </a>
+        </div>
+        <div class="home">
+            <a href="/search">
+                <img src="../static/img/xinzhuang49@2x.png" alt="" class="searchboximg">
+            </a>
+        </div>
+        <div class="home">
+            <a href="/message">
+                <img src="../static/img/xinzhuang86@2x.png" alt="" class="searchboximg">
+            </a>
+        </div>
+        <div class="home">
+            <a href="/aboutme">
+                <img src="../static/img/Icon_User2@2x.png" alt="" class="searchboximg">
+            </a>
+        </div>
+    </div>
+</body>
+</html>

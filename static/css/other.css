@@ -1,0 +1,120 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+a{
+    text-decoration: none;
+}
+body{
+    width: 100%;
+    height: 100%;
+    background: #F2F2F2;
+}
+.header{
+    display: block;
+    width: 100%;
+    height: auto;
+    overflow: hidden;
+    /* box-shadow: 0 0 0.1rem #333; */
+    background: white;
+}
+.header_con{
+    width: 7rem;
+    height: auto;
+    margin: 0 auto;
+    margin-top: 0.7rem;
+}
+.header_con .header_con_left{
+    width: 0.35rem;
+    height: 0.35rem;    
+    float: left;
+}
+.header_con .header_con_text{
+    width: 6.65rem;
+    height: 4.67rem;
+    float: left;
+    font-size: 0.35rem;
+    font-weight: 600;
+    text-align: center;
+    float: left;
+    color: #f993bd;
+}
+.zi{
+    width: 100%;
+    height: 2rem;
+    background: white;
+    position: relative;
+    
+}
+.tou{
+    display: block;
+    width: 2rem;
+    height: 2rem;
+    background: red;
+    position: relative;
+    left: 1rem;
+    top:-1rem;
+    border-radius: 50%;
+    float: left;
+}
+.fan{
+    width: 1.8rem;
+    height: 0.7rem;
+    margin-top: 0.2rem;
+    float: right;
+    margin-right: 0.2rem;
+}
+.flo{
+    width: 1.8rem;
+    height: 0.7rem;
+    margin-top: 0.2rem;
+    float: right;
+}
+.shuzi{
+    font-size: 0.37rem;
+    font-weight: 600;
+}
+.con{
+    width: 100%;
+    height: 3.5rem;
+    
+    margin-top: 0.3rem;
+}
+.con_img{
+    width: 100%;
+    height: 2.04rem;
+    display: flex;
+    
+    justify-content: space-around;
+}
+.con_1{
+    width: 3.43rem;
+    height: 2.04rem;
+    background: white;
+}
+.con_2{
+    width: 3.43rem;
+    height: 2.04rem;
+    background: white;
+}
+.con_img_img{
+    display: block;
+    width: 3.31rem;
+    height: 1.39rem;
+    margin: 0 auto;
+    margin-top: 0.1rem;
+    background: orange;
+}
+.xq{
+    width: 100%;
+    height: 0.5rem;
+    margin-top: 0.1rem;
+}
+.xq_img{
+    display: block;
+    width: 0.35rem;
+    height: 0.35rem;
+    float: right;
+    margin-top: 0.1rem;
+    margin-right: 0.2rem;
+}

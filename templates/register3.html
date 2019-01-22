@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="../static/js/rem.js"></script>
+    <script src="../static/js/jquery-3.2.1.js"></script>
+    <script src="../static/js/register3.js"></script>
+    <link rel="stylesheet" href="../static/css/register3.css">
+</head>
+<body>
+    <div class="nav">
+            <div class="return"><a href=""></a></div>  
+        <div class="reg"><a href="">注册</a>  </div>
+    
+    </div>
+    <main>
+        <div class="circle">
+                <div class="left"></div>
+                <div class="right"></div>
+                <div class="step">
+                    <div class="step2">
+                        <div class="img">
+                                <div class="yuan">
+                        
+                                    </div>
+                        </div>
+                        <div class="word"></div>
+
+                    </div>
+                    <div class="step2">
+                        <div class="img"> <div class="yuan">
+                        
+                            </div></div>
+                        <div class="word"></div>
+
+                    </div>
+                    <div class="step1">
+                        <div class="img"></div>
+                        <div class="word">个性化设置</div>
+                    </div>
+                </div>
+        </div>
+        <form action="/register/upinterest" method="post">
+            <div class="name">
+                <div class="tu"></div>
+                <input type="text" id='name' placeholder="请输入您的昵称" name='username'>
+            </div>
+            <div class="sex">
+                <div class="choice"> <div class="yuan" style="    background-color: #6ac4fd;"></div>  <span>男士</span>    <input type="radio" name='sex' value="0"></div> 
+                <div class="choice"><div class="yuan"   style="background-color: #fd6c8f;"></div> <span>女士</span>   <input type="radio" name="sex"  value="1"></div>  
+            </div>
+            <div class="like">
+                <div class="rows">
+                    <div class="one">
+                        <div class="lg" style="background:#ffd0e1"><img src="../static/img/meizhuang.png" alt=""></div>
+                        <div class="word">美妆</div>
+                        <div class="add">+</div>
+                    </div>
+                    <div class="one">
+                            <div class="lg" style="background:#d5e7fe"><img src="../static/img/xiuchang.png" alt=""></div>
+                            <div class="word">秀场</div>
+                            <div class="add">+</div>
+                        </div>
+                        <div class="one">
+                                <div class="lg" style="background:#ffedc6"><img src="../static/img/chuanda.png" alt=""></div>
+                                <div class="word">时尚穿搭</div>
+                                <div class="add">+</div>
+                            </div>
+                            <div class="one">
+                                    <div class="lg" style="background:#bdf4c2"><img src="../static/img/yundong.png" alt=""></div>
+                                    <div class="word">运动</div>
+                                    <div class="add">+</div>
+                                </div>
+                            
+                </div>
+                <div class="rows">
+                        <div class="one">
+                            <div class="lg" style="background:#bdf4c2"><img src="../static/img/yundong.png" alt=""></div>
+                            <div class="word">风景</div>
+                            <div class="add">+</div>
+                        </div>
+                        <div class="one">
+                                <div class="lg" style="background:#ffedc6"><img src="../static/img/meishi.png" alt=""></div>
+                                <div class="word">网红食谱</div>
+                                <div class="add">+</div>
+                            </div>
+                            <div class="one">
+                                    <div class="lg"style="background:#d5e7fe"><img src="../static/img/youxi.png" alt=""></div>
+                                    <div class="word">游戏</div>
+                                    <div class="add">+</div>
+                                </div>
+                                <div class="one">
+                                </div>
+                                
+                </div>
+                <input type="hidden" name="cateids" id='like'>
+            </div>
+            <button class="login" disabled>完成</button>
+        </form>
+    </main>
+</body>
+</html>

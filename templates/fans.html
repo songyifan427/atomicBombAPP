@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>喜欢你的</title>
+    <script src="../static/js/rem.js"></script>
+    <link rel="stylesheet" href="../static/css/like.css">
+</head>
+<body>
+    <div class="top">
+        <a href="/message">
+            <img src="../static/img/xinzhuang2fu@2x.png" alt="">
+        </a>
+        <span>喜欢你的</span>
+    </div>
+    <div class="center">
+        <div class="other">
+            {% for item in data %}
+                <div class="point">
+                    <img src="../static/img/head/{{ item.headurl }}" alt="">
+                    <div class="cen">
+                        <span>{{ item.username }}</span>
+                        <div class="like">
+                            <div class="son"></div>
+                            <span>给你一个大大的喜欢</span>
+                            <!-- <span>{{ item.c_time }}</span> -->
+                        </div>
+                    </div>
+                    <div class="color"></div>
+                    <!-- <img src="../static/img/head/{{ item.headurl }}" alt=""> -->
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+    
+</body>
+</html>

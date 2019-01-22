@@ -1,0 +1,159 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+a{
+    text-decoration: none;
+}
+body{
+    width: 100%;
+    height: 100%;
+    background: #fafafa;
+}
+.top{
+    width: 100%;
+    height: 7rem;
+    position: relative;
+}
+.back{
+    width: 100%;
+    height: 100%;
+    background-image:url('../img/imgs/QQ图片20190116090940.png');
+    background-size:120%;
+    background-position: 45% 10%;
+    filter:blur(0.35rem);  /*背景图片模糊*/
+    position: absolute;
+    opacity: 0.5;
+    left: 0;
+    top: 0;
+}
+.shezhi{
+    width: 0.9rem;
+    height: 1.91rem;
+    position: absolute;
+    top: 0.37rem;
+    right: 0.24rem;
+}
+.headImg{
+    width: 2rem;
+    height: 2rem;
+    background: white;
+    margin: 0 auto;
+    position: absolute;
+    left: 2.74rem;
+    top: 1rem;
+    border-radius: 50%; 
+}
+.hImg{
+    display: block;
+    width: 1.92rem;
+    height: 1.92rem;
+    background: red;
+    border-radius: 50%;
+    margin: 0 auto;
+    margin-top: 0.05rem;
+}
+.sexImg{
+    display: block;
+    width: 0.5rem;
+    height: 0.5rem;
+    background: white;
+    margin: 0 auto;
+    position: absolute;
+    left: 4.15rem;
+    top: 2.57rem;
+    border-radius: 50%; 
+}
+.uname{
+    width: 100%;
+    position: absolute;
+    top: 3.64rem;
+    left:0;
+    text-align: center;
+    font-size: 0.4rem;
+    font-weight: 600;
+    color: #2B2A30;
+}
+.xj{
+    width: 100%;
+    position: absolute;
+    top: 4.22rem;
+    left:0;
+    text-align: center;
+    font-size: 0.3rem;
+    font-weight: 600;
+    color: #576174;
+}
+.star{
+    width: 1.7rem;
+    height: 0.3rem;
+    position: absolute;
+    left: 2.88rem;
+    top: 4.88rem; 
+}
+.fens{
+    width: 3.6rem;
+    height: 0.5rem;
+    position: absolute;
+    left: 1.95rem;
+    top: 5.55rem; 
+}
+.shuzi{
+    font-size: 0.37rem;
+    font-weight: 600;
+}
+.tiao{
+    width: 100%;
+    height: 0.6rem;
+    background: blue;
+    position: absolute;
+    opacity: 0.2;
+    left: 0;
+    bottom: 0; 
+}
+.xia{
+    width: 100%;
+    height: 5rem;
+    position: relative;
+}
+.ziliao{
+    width: 3.81rem;
+    height: 1.07rem;
+    background: white;
+    position: absolute;
+    left:1.81rem;
+    top:-0.6rem;
+    border-radius: 0.9rem;
+}
+.ziliao_con{
+    width: 3.6rem;
+    height: 0.87rem;
+    margin: 0 auto;
+    border-radius: 0.9rem;
+    margin-top: 0.1rem;
+    box-shadow: 0rem 0rem 0.2rem #FF526E;
+}
+.xiangqing{
+    width: 90%;
+    height: 1.55rem;
+    margin: 0 auto;
+    padding-top: 1.66rem;
+    display:flex;
+    justify-content: space-around;
+    
+}
+.myfabu{
+    width: 1.2rem;
+    height: 100%;
+   
+}
+.mylike{
+    width: 1.2rem;
+    height: 100%;
+   
+}
+.mytix{
+    width: 1.2rem;
+    height: 100%;
+    
+}

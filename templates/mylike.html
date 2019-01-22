@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="../static/css/myfabu.css">
+    <script src="../static/js/jquery.js"></script>
+    <script src="../static/js/rem.js"></script>
+    <title>Document</title>
+</head>
+<style>
+.down{
+    width: 100%;
+    height: 90.1%;
+    background: #F2F2F2;
+    text-align: center;
+    padding-top: 30%;
+    box-sizing: border-box;
+
+}
+.img2{
+    width: 3.45rem;
+    height: 3.45rem;
+    margin: 0 auto;
+}
+.text_a{
+    display: block;
+    width: auto;
+    height: 0.22rem;
+    line-height: 0.22rem;
+    color: #969696;
+    font-size: 0.22rem;
+    font-weight: bolder;
+    margin-top: 1.17rem;
+}
+.text_b{
+    display: block;
+    width: auto;
+    height: 0.22rem;
+    line-height: 0.22rem;
+    color: #969696;
+    font-size: 0.22rem;
+    font-weight: bolder;
+    margin-top: 0.09rem;
+}
+
+
+
+
+</style>
+<body>
+    <div class="header">
+        <div class="header_con">
+            <a href="javascript:history.back();">
+                <div class="header_con_left">
+                    <img src="../static/img/imgs/xz4.png" alt="" width="16" height="16" style="display:block">
+                </div>
+            </a>
+            <div class="header_con_text">我的喜欢</div>
+    </div>
+    </div>
+    {% if data %}
+    <main>
+        {% for item in data %}
+        <div class="sty" style="margin-top:0.3rem;">
+            <a href="">
+                <img src="../static/img/head/{{ item.imgurl }}" alt="" class="img_1" width="50" height="50" style="display:block;float:left;">
+                <div style="float:left">
+                    <p style="display:block;font-size: 0.25rem;font-weight: 600;color: #666666;margin-left: 0.15rem;margin-top:0.25rem ">{{ item.title }}</p>
+                    <p style="display:block;font-size: 0.15rem;font-weight: 600;color: #666666;margin-left: 0.15rem;margin-top:0.08rem ">{{ item.a_time }}</p>
+                </div>
+                
+            </a>  
+            <a href="/myarticles/del/{{ item.articleid }}">
+                <img src="../static/img/imgs/Icon_Trashcan@2x.png" alt="" class='img_2' style="display:block;float: right;margin-right:0.15rem;margin-top: 0.2rem " width="45" height="40">
+            </a> 
+        </div>
+        {% endfor %}
+        </main>
+        {% else %}
+        <div class="down">
+            <img src="../static/img/zm23.png" alt="" class="img2">
+            <span class="text_a">您还没有喜欢的资讯哦</span>
+            <span class="text_b">赶快去添加你喜欢的咨询吧</span>
+        </div>
+        {% endif %}
+</body>
+</html>

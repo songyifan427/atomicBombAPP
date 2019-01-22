@@ -1,0 +1,380 @@
+*{
+    list-style: none;
+    text-decoration: none;
+}
+html,body{
+    padding:0;
+    margin: 0;
+    background-color: #fefefe;
+}
+header{
+    width: 100%;
+    height: 1rem;
+    background: #fff;
+    display: flex;
+    justify-content: space-around;
+}
+header .left{
+    width: 0.5rem;
+    height: 0.5rem;
+    border-radius: 50%;
+    margin-top: 0.25rem;
+    /* background-size: contain */
+}
+header .change{
+    background: #FF7EAB url('../img/ren.png') no-repeat;
+    background-size: cover;
+}
+header .back{
+    width: 0.2rem;
+    height: 0.16rem;
+    margin-top: 0.42rem;
+    background:  url('../img/back.png') no-repeat;
+    background-size: contain;
+    display: none;
+    /* background-size: contain */
+}
+header .middle{
+    width: 5.08rem;
+    height: 0.5rem;
+    margin-top: 0.25rem;
+    background: #EAF3FF;
+    border-radius: 0.25rem;
+    display: flex;
+    justify-content: space-around;
+}
+header .middle .heng{
+    width: 0.12rem;
+    height: 0.05rem;
+    margin-top: 0.225rem;
+    background: url('../img/heng.png') no-repeat;
+    background-size: cover;
+    /* background-position: 0 0.22rem; */
+}
+header .middle input{
+    outline: none;
+    background: #EAF3FF;
+    border: none;
+    color:#959BA3;
+    font-size: 14px;
+}
+header .middle .sou{
+    width: 0.25rem;
+    height: 0.25rem;
+    margin-top: 0.12rem;
+    background: url('../img/fangdajing.png') no-repeat;
+    background-size: cover;
+    /* background-position: 0 0.13rem; */
+}
+header .right{
+    width: 0.5rem;
+    height: 0.5rem;
+    border-radius: 50%;
+    margin-top: 0.25rem;
+    background: #7CB2FA url('../img/search.png') no-repeat;
+    background-size: cover;
+    /* background-size: contain; */
+}
+header .history{
+    width: 0.5rem;
+    height: 0.5rem;
+    border-radius: 50%;
+    margin-top: 0.25rem;
+    background: #FDC342 url('../img/history.png') no-repeat;
+    background-size: cover;
+    display: none;
+    /* background-size: contain; */
+}
+.content{
+    width: 100%;
+    height: auto;
+    background-color: #FAFAFA;
+}
+.con_title{
+    width: 100%;
+    height: 0.5rem;
+    background: -webkit-linear-gradient(top,#F5F5F5,#fefefe);
+}
+.content .sou_title{
+    width: 100%;
+    height: 0.5rem;
+    font-weight: bold;
+    font-size: 0.27rem;
+    /*padding-top: 0.1rem;*/
+}
+.content .sou_title .imgs{
+    width: 0.07rem;
+    height: 0.17rem;
+    display: inline-block;
+    background: url("../img/dian.png") no-repeat;
+    background-size: cover;
+    margin-left: 0.25rem;
+}
+.content .sou_title span{
+    display: inline-block;
+    width: auto;
+    height: 0.5rem;
+    line-height: 0.5rem;
+    margin-left: 0.05rem;
+
+}
+.content .cons{
+    position: relative;
+    width: 7.02rem;
+    height: 1.03rem;
+    background-color: #fff;
+    border-radius: 0.1rem;
+    margin:0 0.24rem 0.1rem;
+    box-shadow: 0.1rem 0.1rem 0.05rem #fbfbfb;
+}
+.content .cons .head_img{
+    float: left;
+    margin: 0.14rem 0.14rem;
+    width: 0.78rem;
+    height: 0.77rem;
+}
+.content .cons .con_a{
+    float: left;
+    width: auto;
+    height: 100%;
+}
+.content .cons .con_a .names{
+    height: 0.25rem;
+    font-size: 0.25rem;
+    margin: 0.12rem 0.05rem;
+    color: #A3A3A3;
+}
+.shuzi{
+    width: auto;
+    height: 0.14rem;
+    font-size: 0.13rem;
+    margin-left: 0.05rem;
+}
+.shuzi .tu{
+    display: inline-block;
+    width: 0.12rem;
+    height: 0.13rem;
+    background: url("../img/dian1.png") no-repeat;
+    background-size: cover;
+}
+.content .cons .more{
+    width: 0.35rem;
+    height: 0.36rem;
+    background: url("../img/more.png") no-repeat;
+    background-size: cover;
+    float: right;
+    margin: 0.35rem 0.24rem;
+}
+.content .search_block{
+    width: 100%;
+    height: 1.93rem;
+    margin-top: 0.5rem;
+}
+.blocks{
+    border-radius: 0.24rem;
+    font-size: 0.23rem;
+    font-weight: bold;
+    text-align: center;
+    line-height: 0.48rem;
+}
+.content .search_block .search_head{
+    width: 1rem;
+    height: 0.48rem;
+    color: #fff;
+    margin-left: 0.25rem;
+}
+.content .container{
+    width: 7.02rem;
+    height: 0.48rem;
+    margin: 0.25rem 0.24rem;
+    display: flex;
+    justify-content: space-around;
+}
+.content .container .small{
+    width: 0.99rem;
+    height: 0.48rem;
+}
+.content .container .big{
+    width: 1.82rem;
+    height: 0.48rem;
+}
+.content .search_block .container .styles{
+    width: 1.2rem;
+    height: 0.5rem;
+    border-radius: 0.25rem;
+    font-size: 0.23rem;
+    font-weight: bold;
+    text-align: center;
+    line-height: 0.5rem;
+    background-color: #FBEBF0;
+}
+.content .btn{
+    width: 3.25rem;
+    height: 0.7rem;
+    background-color: #FF2F72;
+    margin-left: 2.17rem;
+    border: none;
+    outline: none;
+    font-weight: bold;
+    color: #fff;
+    border-radius: 0.35rem;
+    box-shadow: -0.1rem 0.1rem 0.05rem #eee;
+}
+.content .nones .blank{
+    width: 100%;
+    height: 2.27rem;
+}
+.content .nones .nulls{
+    width: 3.97rem;
+    height: 4.62rem;
+    background: url("../img/none.png") no-repeat;
+    background-size: cover;
+    margin-left: 1.7rem;
+}
+.content .succ_title{
+    width: 100%;
+    height: 1.15rem;
+}
+.content .succ_title .top{
+    width: 100%;
+    height: 0.5rem;
+    font-size: 0.25rem;
+    font-weight: bold;
+    line-height: 0.5rem;
+}
+
+.content .succ_title .totle{
+    width: 100%;
+    height: 0.34rem;
+    display: flex;
+    justify-content: left;
+    margin-top: 0.2rem;
+}
+.shuzis{
+    width: auto;
+    height: 100%;
+    display: flex;
+    justify-content: left;
+}
+.shuzis .tu{
+    margin-top: 0.1rem;
+    margin-right: 0.15rem;
+}
+.sum{
+    width: 0.56rem;
+    height: 0.34rem;
+    border-radius: 0.17rem;
+    font-size: 0.17rem;
+    color: #fff;
+    font-weight: bold;
+    text-align: center;
+    line-height: 0.34rem;
+}
+.sou_detail{
+    width: 7.02rem;
+    height: 4.56rem;
+    margin-top: 0.3rem;
+    border-radius: 0.3rem;
+    background-color: #fff;
+    margin-left: 0.25rem;
+}
+.sou_detail .img_detail{
+    width: 100%;
+    height: 3.1rem;
+    /*background: url("../img/e944b468971463.5b7051eb9444e@2x.png") no-repeat;*/
+    /*background-size: cover;*/
+    position: relative;
+}
+.tou{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 0.76rem;
+    background-color: rgba(0,0,0,0.3);
+    font-size: 0.26rem;
+    font-weight: bold;
+    color: #fff;
+    line-height: 0.76rem;
+}
+.con_detail{
+    width: 6.11rem;
+    height: 0.76rem;
+    margin-top: 0.5rem;
+    margin-left: 0.5rem;
+    display: flex;
+    justify-content: left;
+}
+.con_detail .img_head{
+    width: 0.78rem;
+    height: 100%;
+    border-radius: 50%;
+    background: url("../img/tou.png") no-repeat;
+    background-size: cover;
+}
+.con_detail .con_names{
+    width: auto;
+    height: 100%;
+    margin-left: 0.2rem;
+}
+.con_detail .con_names .guanzhu{
+    width: 0.7rem;
+    height: 0.35rem;
+    border-radius: 0.35rem;
+    font-size: 0.17rem;
+    text-align: center;
+    font-weight: bold;
+}
+.con_detail .con_names .share{
+    width: 3rem;
+    height: 0.37rem;
+    display: flex;
+    margin-top: 0.1rem;
+    justify-content: space-between;
+}
+.con_detail .con_names .share .firstly{
+
+}
+.share .firstly .to{
+    width: 0.43rem;
+    height: 0.38rem;
+    background: url("../img/share.png") no-repeat;
+    background-size: cover;
+}
+.message_to{
+    width: 0.43rem;
+    height: 0.41rem;
+    background: url("../img/message.png") no-repeat;
+    background-size: cover;
+}
+.love_to {
+    width: 0.42rem;
+    height: 0.38rem;
+    background: url("../img/love.png") no-repeat;
+    background-size: cover;
+}
+.bottom{
+    width: 100%;
+    height: 1rem;
+    background: #fefefe;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+.bottom div{
+    width: 25%;
+}
+.bottom .searchbox{
+    width: 25%;
+    height: 100%;
+    border-bottom: 0.04rem solid #74affd;
+    box-sizing: border-box;
+}
+.bottom .searchboximg{
+    display: block;
+    margin-top: 0.1rem;
+    margin-left: 0.55rem;
+}
+.bottom .talk{
+    position: relative;
+}

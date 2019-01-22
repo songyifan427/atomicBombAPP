@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="../static/css/xiangqing.css">
+    <link rel="stylesheet" href="../static/css/shuru.css">
+    <link rel="stylesheet" href="../static/css/ying.css">
+    <script src="../static/js/rem.js"></script>
+    <script src="../static/js/shou.js"></script>
+    <title>详情</title>
+</head>
+<body>
+    <div class="xiangqing">
+        <a href=""><img src="../static/img/zm61.png" alt="" class="img1"></a>
+        <div class="tu">
+            <img src="../static/img/zm71.png" alt="" class="img2">
+            <div class="but"></div>
+        </div>
+        <div class="xia">
+            <div class="one">
+                <div class="dian">
+                    <li style="background: #F86493"></li>
+                    <li style="background: #FEBBCF"></li>
+                    <li style="background: #FDE3E9"></li>
+                </div>
+                <div class="tit">
+                    <img src="../static/img/FM.png" alt="" class="fm">
+                    <img src="../static/img/zm73.png" alt="" class="zm73">
+                </div>
+                <span class="le">红人颜值榜 THE FACE </span>
+                <span class="le1">{{ data.title }}</span>
+                <p class="pp">
+                    {{ data.a_content }}
+                </p>
+                <div class="biao">
+                    <img src="../static/img/zm75.png" alt="">
+                    <img src="../static/img/zm74.png" alt="" class="pinglun">
+                    <img src="../static/img/zm76.png" alt="" class="fenxiang">
+                </div>
+                <div class="tiao">
+                    <img src="../static/img/zm77.png" alt="">&nbsp;&nbsp;
+                    商品详情页，点击此链接跳转
+                </div>
+                <div class="lianjie">
+                    <a href="">https://www.baidu.com/</a>
+                </div>
+            </div>
+            <div class="yuan">
+                <li style="background: #FF649B">
+                    女神范
+                </li>
+                <li style="background: #74AFFD">
+                    化妆术
+                </li>
+                <li style="background: #FF649B">
+                    香奈儿
+                </li>
+                <li style="background: #74AFFD">
+                    种草机
+                </li>
+            </div>
+            <div class="ti">
+                <div class="nav">
+                    <li style="background: #71DAFE;"></li>
+                    <li style="background: #FF8AA8;"></li>
+                </div>
+                <span>相关</span>
+                <span style="color:#FF649B;">标签</span>
+            </div>
+            <div class="buut">
+                <span>{{ catename }}</span>
+            </div>
+            <div class="ti">
+                    <div class="nav">
+                        <li style="background: #71DAFE;"></li>
+                        <li style="background: #FF8AA8;"></li>
+                    </div>
+                    <span>相关</span>
+                    <span style="color:#FF649B;">文章</span>
+            </div>
+            <div class="wenzhang">
+                <li>
+                    <img src="../static/img/zm78.png" alt="" class="tou">
+                    <div class="wen">这skr好安利，让你秒变氧气女神!</div>
+                    <div class="riqi">
+                        <div class="a">
+                            <div class="b"></div>
+                        </div>
+                        &nbsp;&nbsp;2018.7.24
+                    </div> 
+                    <img src="../static/img/zm79.png" alt="" class="c"> 
+                </li>
+                <li>
+                    <img src="../static/img/zm80.png" alt="" class="tou">
+                    <div class="wen">晒后不用怕，我们有好礼物!</div>
+                    <div class="riqi">
+                        <div class="a">
+                            <div class="b"></div>
+                        </div>
+                        &nbsp;&nbsp;2018.7.24
+                    </div> 
+                    <img src="../static/img/zm79.png" alt="" class="c"> 
+                </li>
+                <li>
+                    <img src="../static/img/zm81.png" alt="" class="tou">
+                    <div class="wen">解决夏季小问题！！！</div>
+                    <div class="riqi">
+                        <div class="a">
+                            <div class="b"></div>
+                        </div>
+                        &nbsp;&nbsp;2018.7.24
+                    </div> 
+                    <img src="../static/img/zm79.png" alt="" class="c">
+                </li>
+            </div>
+            <div class="ti1">
+                    <div class="nav">
+                        <li style="background: #71DAFE;"></li>
+                        <li style="background: #FF8AA8;"></li>
+                    </div>
+                    <span>相关</span>
+                    <span style="color:#FF649B;">评论</span>
+                    <a href="javascript:;"><span class="d" style="float: right;font-size: 0.21rem;">查看全部评论</span></a>
+                    <a href="javascript:;"><img src="../static/img/zm82.png" alt=""></a>
+            </div>
+            {% if comment %}
+                {{ for item in comment }}
+                <li>
+                    <div class="wen">{{ item.c_content }}</div>
+                    <div class="riqi">
+                        <div class="a">
+                            <div class="b"></div>
+                        </div>
+                        &nbsp;&nbsp;{{ item.c_time }}
+                    </div>
+                    <img src="../static/img/zm79.png" alt="" class="c">
+                </li>
+                {% else %}
+                <span class="l">您暂时还没有任何评论呦！</span>
+                {{ endfor }}
+            {% enfif %}
+            <div class="user">
+                <span class="name">{{ data.username }}</span>
+                <script >
+                function addfollow() {
+                     var ajax=new XMLHttpRequest()
+                     ajax.onload=function(ev){
+                         if(ajax.response='done'){
+                             document.querySelector(".guan").innerHTML="已关注"
+                         }
+                     }
+                     ajax.open("get","/addfollow?userid={{ data.userid }}")
+                     ajax.send()
+                }
+                </script>
+                <a href="javascript:addfollow();"><span class="guan">关注</span></a>
+                <div class="xiang">
+                    <img src="../static/img/zm83.png" alt="" class="touxiang">
+                </div>
+            </div>
+        </div>  
+        <div class="shuru">
+            <a href="javascript:;"><img src="../static/img/zm22.png" alt="" class="img11"></a>
+            <div class="zi">
+                <span class="aa">0</span>
+                <span class="bb">.</span>
+                <span class="cc">120</span>
+            </div>
+            <form action="/commtent/{{ data.articleid }}" class="ru" method="POST">
+                <textarea name="" id="myArea" class="c_content" cols="40" rows="3" placeholder="在此处输入评论内容"></textarea>
+                <img src="../static/img/zm55.png" alt="" class="y">
+                <input type = "image"' name = "..." src = "../static/img/zm56.png" class="m">
+                
+                <img src="../static/img/zm57.png" alt="" class="n">
+                <img src="../static/img/zm58.png" alt="" class="v">
+                <img src="../static/img/zm59.png" alt="" class="x">
+            </form>    
+        </div>
+        <div class="ying">
+            <a href=""><img src="../static/img/zm61.png" alt="" class="y_img1"></a>
+            <div class="biao1">
+                <li style="margin-right: 0.52rem;">
+                    <img src="../static/img/zm63.png" alt="" class="y_img2">
+                    <div>QQ</div>
+                </li>
+                <li style="margin-right: 0.52rem;">
+                    <img src="../static/img/zm64.png" alt="" class="y_img2">
+                    <div>QQ空间</div>
+                </li>
+                <li style="margin-right: 0.52rem;">
+                    <img src="../static/img/zm65.png" alt="" class="y_img2">
+                    <div>微信好友</div>
+                </li>
+                <li>
+                    <img src="../static/img/zm66.png" alt="" class="y_img2">
+                    <div>朋友圈</div>
+                </li>
+                <li style="margin-right: 0.52rem;">
+                    <img src="../static/img/zm67.png" alt="" class="y_img2">
+                    <div>微博</div>
+                </li>
+                <li style="margin-right: 0.52rem;">
+                    <img src="../static/img/zm68.png" alt="" class="y_img2">
+                    <div>举报该信息</div>
+                </li>
+                <li style="margin-right: 0.52rem;">
+                    <img src="../static/img/zm69.png" alt="" class="y_img2">
+                    <div>复制链接</div>
+                </li>
+                <li></li>
+            </div>
+        </div>
+    </div> 
+</body>
+
+</html>

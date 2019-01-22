@@ -1,0 +1,421 @@
+*{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+a{
+    text-decoration: none;
+}
+html{
+    width: 100%;
+    height: 100%;
+}
+body{
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    background-image: url('../img/bg.png');
+    background-repeat: no-repeat;
+    background-position-x: -40px;
+    background-position-y: -40px;
+
+}
+
+
+/* 导航 */
+.nav{
+    width: 100%;
+    margin-top: 32px;
+    height: 0.64rem;
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+.reg{
+    width: 65px;
+    height:32px;
+    font-size: 0.32rem;
+    margin-right: 12px;
+    border-radius: 14px;
+    text-align: center;
+    line-height: 32px;
+    letter-spacing: 2px;
+    font-weight: bold;
+    position: absolute;
+    top:0;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+}
+.reg a{
+    color: #fa91b7;
+}
+.return{
+    width: 10px;
+    height:8px;
+    margin-left: 12px;
+    background-image: url('../img/houtui.png');
+    margin-top: 12px;
+}
+.return a{
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+/* 主体 */
+main{
+    width: 100%;
+    height: 65%;
+    background: #fafafa;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+}
+/* logo */
+.logo{
+    width: 120px;
+    height:120px;
+    position: absolute;
+    left:0;
+    right: 0;
+    top:-60px;
+    margin: 0 auto;
+}
+.logo .big{
+    width: 100%;
+    height: 100%;
+    background-image: url('../img/da.png');
+    background-position: center;
+}
+.logo .mid{
+    width:101px;
+    height:101px;
+    position: absolute;
+    top:0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    background-image: url('../img/zhong.png');
+    background-position: center;
+}
+.logo .small{
+    width:80px;
+    height:80px;
+    position: absolute;
+    top:0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    background-image: url('../img/xiao.png');
+    background-position: center;
+}
+.logo .rel{
+    width: 60px;
+    height:60px;
+    position: absolute;
+    top:0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    background-color: #fff;
+    border-radius: 50%;
+}
+.rel img{
+    position: absolute;
+    top:0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+}
+/* 椭圆部分 */
+.circle{
+    width:100%;
+    height:102px;
+    position: absolute;
+    top:-101px;
+}
+.circle .left{
+    width: 50%;
+    height:100%;
+    border-radius: 100%   0  0 0;
+    background: #fafafa;
+    float: left;
+}
+.circle .right{
+    width: 50%;
+    height:100%;
+    border-radius: 0  100%  0 0;
+    float: left;
+    background: #fafafa;
+}
+.circle .title{
+    width: 99px;
+    height:15px;
+    background-image: url('../img/Bomb.png');
+    position: absolute;
+    top:55px;
+    left:0;
+    right: 0;
+    margin: 0 auto;
+}
+.circle .step{
+    width: 5rem;
+    height: 1rem;
+    position: absolute;
+    top:0;left: 0;right: 0;bottom: 0;
+    margin: auto;
+    display: flex;
+    justify-content: space-around;
+}
+.circle .word{
+    font-size: 0.21rem;
+    color:#a0c8fe;
+}
+.circle .yuan{
+    width: 0.78rem;
+    height: 0.08rem;
+    background-image: url('../img/yuan.png');
+    position: absolute;
+    top:0;
+    bottom: 0;
+    margin: auto 0;
+    left: 0.8rem;
+}
+.circle .step1{
+    width: 1.48rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+.circle .step2{
+    width: 1.48rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+.circle .step1 .img{
+    width: 0.62rem;
+    height: 0.62rem;
+    background-image: url('../img/step1.png');
+    position: relative;
+}
+.circle .step2 .img{
+    width: 0.58rem;
+    height: 0.58rem;
+    background-image: url('../img/step2.png');
+    position: relative;
+}
+/* 登陆 */
+
+main form{
+    width: 100%;
+    height:250px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+}
+form .entry{
+    width: 312px;
+    height:180px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+.entry .tip{
+    width: 25px;
+    height: 25px;
+    background-image:url('../img/yes.png');
+    background-size: cover;
+    margin-left: 20px;
+    display: none;
+}
+.entry .tip2{
+    width: 25px;
+    height: 25px;
+    background-image:url('../img/error.png');
+    background-size: cover;
+    margin-left: 20px;
+    display: none;
+
+}
+.entry .phone{
+    width:312px ;
+    height:0.74rem;
+    background-color: #fff;
+    border-radius: 18px;
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+.ph_img{
+    width: 0.54rem;
+    height: 0.54rem;
+    background-image: url('../img/phone.png');
+    background-size: cover;
+    border-radius: 50%;
+    margin-left: 5px;
+}
+
+.entry .password{
+    width:312px ;
+    height:37px;
+    background-color: #fff;
+    border-radius: 18px;
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+.entry .tipwords{
+    width: 4.8rem;
+    height: 0.45rem;
+    position: absolute;
+    bottom: -0.45rem;
+    left: 0.4rem;
+    font-size: 0.22rem;
+    background-color: #fbebd0;
+    border-radius: 10px;
+    line-height: 0.45rem;
+    color: #fcc4c0;
+    display: none;
+}
+.entry .tipwords .fuhao{
+    width: 0.25rem;
+    height: 0.25rem;
+    background: url('../img/tip.png');
+    float: left;
+    margin-top: 5px;
+    margin-left: 10px;
+}
+.entry .tipwords .words{
+    float: left;
+    margin-left: 10px;
+}
+.pw_img{
+    width: 0.54rem;
+    height: 0.54rem;
+    background-image: url('../img/pw.png');
+    background-size: cover;
+    border-radius: 50%;
+    margin-left: 5px;
+}
+#phone, #pw ,#pw2{
+    border:0;
+    margin-left: 10px;
+    outline: none;
+    width: 4rem;
+}
+input::-webkit-input-placeholder{
+    color:#f2f2f2
+}
+.forget{
+    width:312px ;
+    height:0.3rem;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+.find{
+    width: 1.26rem;
+    height: 0.3rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.find a{
+    font-size: 0.22rem;
+    color:#aaa9a9;
+}
+.login{
+    width:3.30rem;
+    height:0.7rem;
+    font-size:0.24rem;
+    color:#c4ddfa;
+    text-align: center;
+    line-height: 0.7rem;
+    border-radius: 0.3rem;
+    margin: 0 auto;
+    background-color: #e3ecf8;
+    border:0;
+    letter-spacing: 3px;
+
+}
+
+/*  底部 第三方登陆 */
+.foot{
+    width:100%;
+    height:2.56rem;
+    position: absolute;
+    bottom:0;
+    left:0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.foot .title{
+    width:1.80rem;
+    height:0.3rem;
+    font-size: 0.22rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    letter-spacing: 2px;
+    position: relative;
+    color: #c9c9c9;
+}
+.foot .title::after{
+    display: block;
+    content: '';
+    width: 2.2rem;
+    height:1px;
+    position: absolute;
+    background-color: #aaa9a9;
+    left: -2.3rem;
+}
+.foot .title::before{
+    display: block;
+    content: '';
+    width: 2.2rem;
+    height:1px;
+    position: absolute;
+    background-color: #aaa9a9;
+    right: -2.3rem;
+}
+.foot .choose{
+    width: 4.48rem;
+    height:1.24rem;
+    margin-top: 0.34rem;
+    display: flex;
+    justify-content: space-between;
+}
+.choose .one{
+    width: 1.24rem;
+    height: 1.24rem;
+    border-radius: 50%;
+}
+.choose .one a{
+    display: block;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.choose .QQ{
+    background-color: #ddebfb;
+}
+.choose .wchat{
+    background-color: #dbf6e5;
+}
+.choose .sina{
+    background-color: #fce6d2;
+}

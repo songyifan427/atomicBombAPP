@@ -1,0 +1,104 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+a{
+    text-decoration: none;
+}
+body{
+    width: 100%;
+    height: 100%;
+    background: #F2F2F2;
+}
+.heade{
+    width: 5rem;
+    height: 2.25rem;
+    margin: 0 auto;
+    margin-top: 1.3rem;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+.biao{
+    width: 6.25rem;
+    height: 5rem;
+    margin: 0 auto;
+    margin-top: 0.95rem;
+}
+.nicheng{
+    width: 100%;
+    height: 0.75rem;
+    background: white;
+    border-radius: 0.4rem;
+    display: flex;
+    align-items: center;
+}
+.nicheng_con{
+    display: block;
+    width: 75%;
+    height: 0.75rem;
+    outline:none;  
+    border:0;
+    float: left;
+    margin-left: 0.2rem;
+}
+.selfsty{
+    width: 100%;
+    margin-top:0.4rem; 
+    background: white;
+    overflow: hidden;
+}
+.selfsty_con{
+    display: block;
+    width: 90%;
+    border: 0;
+    margin: 0 auto;
+    margin-top:0.2rem; 
+    outline:none;  
+}
+.nan{
+    width: 1.8rem;
+    height: 0.4rem;
+    float: left;
+    margin-top: 0.2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+.nv{
+    width: 1.8rem;
+    height: 0.4rem;
+    float: left;
+    margin-top: 0.2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+p{
+    font-size: 0.25rem;
+    font-weight: 600;
+    color: #C8C8C8;
+}
+.end{
+    width: 5.7rem;
+    height: 0.8rem;
+    margin: 0 auto;
+    margin-top: 0.9rem;
+    display: flex;
+    justify-content: space-between;
+}
+.yuan{
+    width: 2.7rem;
+    height: 100%;
+    background: black;
+    border-radius: 0.5rem;
+    font-size: 0.25rem;
+    text-align: center;
+    line-height: 0.8rem;
+    color: white;
+    font-weight: 600;
+}
+.butt{
+    color: white;
+    font-weight: 600;
+}

@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src='../static/js/rem.js'></script>
+    <script src="../static/js/jquery-3.2.1.js"></script>
+    <link rel="stylesheet" href="../static/css/sousuo.css">
+</head>
+<style>
+
+</style>
+<body>
+    <header>
+        <div class="left change"></div>
+        <div class="back"></div>
+        <div class="middle">
+            <div class="heng"></div>
+            <input type="text" placeholder="搜索您喜欢的咨询..." id="search">
+            <div class="sou"></div>
+        </div>
+        <div class="history"><a href="/searchhistory" style="display: block;width: 100%;height: 100%;"></a></div>
+        <div class="right"></div>
+    </header>
+    <div class="con_title"></div>
+    <div class="content">
+        <div class="detail" style="display: none">
+            <div class="sou_title">
+            <div class="imgs"></div>
+            <span style="color: #444E59;;">搜索</span>
+            <span style="color: #FF649B">详情</span>
+            </div>
+            {% for item in data %}
+            <a href="/article/{{ item.articleid }}">
+        <div class="cons">
+            <img src="../static/img/articleurl/{{ item.imgurl }}" alt="" class="head_img">
+            <div class="con_a">
+                <div class="names">{{ item.title }}</div>
+                <div class="shuzi">
+                    <div class="tu"></div>
+                    <span style="color: #dddddd;">{{ item.up }}</span>
+                </div>
+            </div>
+            <div class="more"></div>
+        </div>
+                </a>
+            {% endfor %}
+         <!--<div class="cons">-->
+            <!--<img src="../static/img/0fb3c340320237.5954ed08d4f3a@2x.png" alt="" class="head_img">-->
+            <!--<div class="con_a">-->
+                <!--<div class="names">纽约时装秀场</div>-->
+                <!--<div class="shuzi">-->
+                    <!--<div class="tu"></div>-->
+                    <!--<span style="color: #dddddd;">250</span>-->
+                <!--</div>-->
+            <!--</div>-->
+            <!--<div class="more"></div>-->
+        <!--</div>-->
+        <div class="sou_title">
+            <div class="imgs"></div>
+            <span style="color: #B6B6B6;;">相关</span>
+            <span style="color: #B6B6B6">搜索</span>
+        </div>
+            {% for item1 in data1 %}
+            <a href="/user/{{ item1.userid }}">
+        <div class="cons">
+            <img src="../static/img/head/{{ item1.headurl }}" alt="" class="head_img">
+            <div class="con_a">
+                <div class="names">{{ item1.username }}</div>
+                <div class="shuzi">
+                    <div class="tu"></div>
+                    <span style="color: #dddddd;">{{ item1.r_time }}</span>
+                </div>
+            </div>
+            <div class="more"></div>
+        </div>
+                </a>
+            {% endfor %}
+        <div class="blank" style="width: 100%;height: 200px"></div>
+        </div>
+        <div class="classify" style="display: none">
+        <div class="sou_title">
+            <div class="imgs"></div>
+            <span style="color: #444E59;;">热门</span>
+            <span style="color: #FF649B">分类</span>
+        </div>
+        <div class="search_block">
+            <div class="search_head blocks" style="background-color: #FF649B;">专栏</div>
+            <div class="container">
+                <div class="small blocks" style="background-color: #F7E7ED;color: #FF649B">时装</div>
+                <div class="big blocks" style="background-color: #E7F0FC;color: #74AFFD;">活动日</div>
+                <div class="small blocks" style="background-color: #F7E7ED;color: #FF649B">美妆</div>
+                <div class="big blocks" style="background-color: #E7F0FC;color: #74AFFD;">品牌</div>
+            </div>
+            <div class="container">
+                <div class="big blocks" style="background-color: #E7F0FC;color: #74AFFD;">男士</div>
+                <div class="small blocks" style="background-color: #F7E7ED;color: #FF649B">美食</div>
+                <div class="big blocks" style="background-color: #E7F0FC;color: #74AFFD;">电子科技</div>
+                <div class="small blocks" style="background-color: #F7E7ED;color: #FF649B">娱乐</div>
+            </div>
+        </div>
+        <div class="search_block">
+            <div class="search_head blocks" style="background-color: #74AFFD;">风格</div>
+            <div class="container">
+                <div class="styles" style="color: #FF649B">国风</div>
+                <div class="styles" style="color: #74AFFD;">韩流</div>
+                <div class="styles" style="color: #FF649B">日系</div>
+                <div class="styles" style="color: #74AFFD;">欧美</div>
+                <div class="styles" style="color: #FF649B">民族</div>
+            </div>
+        </div>
+        <button class="btn">确定</button>
+        <div class="blank" style="width: 100%;height: 200px"></div>
+            </div>
+        <div class="nones" style="display: none;">
+            <div class="blank"></div>
+            <div class="nulls"></div>
+            <div class="container" style="margin-top: 20px">
+                <div class="small blocks" style="background-color: #F7E7ED;color: #FF649B">时装</div>
+                <div class="big blocks" style="background-color: #E7F0FC;color: #74AFFD;">活动日</div>
+                <div class="small blocks" style="background-color: #F7E7ED;color: #FF649B">美妆</div>
+                <div class="big blocks" style="background-color: #E7F0FC;color: #74AFFD;">品牌</div>
+            </div>
+            <div class="blank"></div>
+        </div>
+        <div class="success" style="display: none">
+            <div class="succ_title">
+                <div class="top">
+                    <span class="lagef" style="color: #FF649B;margin-left: 15px">搜索成功</span>
+                    <span class="lagef" style="color: #DADADA;margin-left: 15px">以下是为您筛选出的相关结果</span>
+                </div>
+                <div class="totle">
+                    <div class="shuzi shuzis" style="">
+                        <div class="tu" style="margin-left: 15px"></div>
+                        <span style="color: #dddddd;">资讯</span>
+                        <div class="sum" style="background-color: #74AFFD;margin-left: 10px">{{ data | length }}</div>
+                    </div>
+                    <div class="shuzi shuzis" style="">
+                        <div class="tu" style="margin-left: 15px"></div>
+                        <span style="color: #dddddd;">博主</span>
+                        <div class="sum" style="background-color: #959595;margin-left: 10px">{{ data1 | length }}</div>
+                    </div>
+                </div>
+            </div>
+            <div class="sou_title">
+                <div class="imgs"></div>
+                <span style="color: #444E59;;">文章</span>
+                <span style="color: #FF649B">结果</span>
+            </div>
+            {% for item in data %}
+            <a href="/article/{{ item.articleid }}">
+            <div class="sou_detail">
+                <div class="img_detail">
+                    <img src="../static/img/articleurl/{{ item.imgurl }}" alt="" class="img_detail">
+                    <div class="tou">
+                        <span style="margin-left: 20px">{{ item.title }}</span>
+                    </div>
+                </div>
+                <div class="con_detail">
+                    <div class="img_head">
+                        <img src="../static/img/head/{{ item.headurl }}" alt="" class="img_head">
+                    </div>
+                    <div class="con_names">
+                        <div style="font-size: 16px;font-weight: bold;color: #8D8D8D">{{ item.username }}</div>
+                        <div style="background-color: #FFE9EE;color: #FF396C;" class="guanzhu" id="{{ item.userid }}">关注</div>
+                    </div>
+                    <div class="con_names">
+                        <div style="font-size: 10px;color: #CBCBCB;text-align: right;width: 150px">{{ item.a_time }}</div>
+                        <div class="share">
+                            <div class="firstly" style="display: flex;justify-content: left">
+                                <div class="to"></div>
+                            </div>
+                            <div class="message" style="display: flex;justify-content: left">
+                                <div class="message_to"></div>
+                                <span style="font-size: 10px;color: #CBCBCB">{{ item.comment_num }}</span>
+                            </div>
+                            <div class="love" style="display: flex;justify-content: left">
+                                <div class="love_to"></div>
+                                <span style="font-size: 10px;color: #CBCBCB">{{ item.up }}</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+                </a>
+            {% endfor %}
+            <div class="sou_detail">
+                <div class="img_detail">
+                    <img src="../static/img/e944b468971463.5b7051eb9444e@2x.png" alt="" class="img_detail">
+                    <div class="tou">
+                        <span style="margin-left: 20px">纽约时装周，#我有我的新性感#</span>
+                    </div>
+                </div>
+                <div class="con_detail">
+                    <div class="img_head"></div>
+                    <div class="con_names">
+                        <div style="font-size: 16px;font-weight: bold;color: #8D8D8D">Chris.Brown</div>
+                        <div style="background-color: #FFE9EE;color: #FF396C;" class="guanzhu">关注</div>
+                    </div>
+                    <div class="con_names">
+                        <div style="font-size: 10px;color: #CBCBCB;text-align: right;width: 150px">2018.7.24</div>
+                        <div class="share">
+                            <div class="firstly" style="display: flex;justify-content: left">
+                                <div class="to"></div>
+                            </div>
+                            <div class="message" style="display: flex;justify-content: left">
+                                <div class="message_to"></div>
+                                <span style="font-size: 10px;color: #CBCBCB">250</span>
+                            </div>
+                            <div class="love" style="display: flex;justify-content: left">
+                                <div class="love_to"></div>
+                                <span style="font-size: 10px;color: #CBCBCB">2500</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="sou_title" style="margin-top: 20px">
+                <div class="imgs"></div>
+                <span style="color: #444E59;;">博主</span>
+                <span style="color: #FF649B">结果</span>
+            </div>
+            {% for item1 in data1 %}
+            <a href="/user/{{ item1.userid }}">
+            <div class="cons" style="margin-top: 20px">
+            <img src="../static/img/head/{{ item1.headurl }}" alt="" class="head_img">
+            <div class="con_a">
+                <div class="names">{{ item1.username }}</div>
+                <div class="shuzi">
+                    <div class="tu"></div>
+                    <span style="color: #dddddd;">{{ item1.r_tima }}</span>
+                </div>
+            </div>
+            <div class="more"></div>
+        </div>
+                </a>
+            {% endfor %}
+        </div>
+    </div>
+    <div class="bottom" style="position:fixed;bottom:0;left:0;">
+        <div class="house">
+            <a href="/">
+                <img src="../static/img/index49.png" alt="" class="searchboximg">
+            </a>
+        </div>
+        <div class="searchbox">
+            <a href="/search">
+                <img src="../static/img/search49.png" alt="" class="searchboximg">
+            </a>
+        </div>
+        <div class="talk">
+            <a href="/message">
+                <img src="../static/img/xinzhuang86@2x.png" alt="" class="searchboximg">
+            </a>
+        </div>
+        <div class="myself">
+            <a href="/aboutme">
+                <img src="../static/img/Icon_User@2x.png" alt="" class="searchboximg">
+            </a>
+        </div>
+    </div>
+</body>
+</html>
+<script>
+window.onload = function(){
+    $("#search").focus(function(){
+        $(".change").css("display","none")
+        $(".back").css("display","block")
+        $(".history").css("display","block")
+        $(".classify").css("display","block")
+        $(".detail").css("display","none")
+        $(".nones").css("display","none")
+        $(".success").css("display","none")
+    })
+    $("#search").on("input",function () {
+        $(".classify").css("display","none")
+        $(".detail").css("display","block")
+        $(".nones").css("display","none")
+        $(".success").css("display","none")
+        var val = $("#search").val()
+        // console.log(val)
+        if(val){
+            $.ajax({
+                url:"/search",
+                type:"POST",
+                data:{"keys":val},
+                success:function (e) {
+
+                    if(e){
+                        e=JSON.parse(e)
+                        $(".classify").css("display","none")
+                        $(".detail").css("display","block")
+                        $(".nones").css("display","none")
+                        $(".success").css("display","none")
+                    }else {
+                        $(".classify").css("display","none")
+                        $(".detail").css("display","block")
+                        $(".nones").css("display","none")
+                        $(".success").css("display","none")
+                    }
+                }
+            })
+        }else {
+            $(".classify").css("display","none")
+            $(".detail").css("display","none")
+            $(".nones").css("display","none")
+            $(".success").css("display","none")
+        }
+    })
+    $(".right").click(function () {
+        var val = $("#search").val()
+        var con = []
+        var time = []
+        var localStorage = window.localStorage
+        var date = new Date()
+        var year = String(date.getFullYear())
+        var month = String(date.getMonth() + 1)
+        var day = String(date.getDate())
+        var hour = String(date.getHours())
+        var minute = String(date.getMinutes())
+        var curtime = year + "." + month + "." + day + " " + hour + ":" + minute
+        // console.log(localStorage.length)
+        if(localStorage.length != 0){
+            con = JSON.parse(localStorage.con)
+            time = JSON.parse(localStorage.time)
+        }
+        con.push(val)
+        time.push(curtime)
+        // console.log(con)
+        // console.log(time)
+        var c = JSON.stringify(con)
+        var t = JSON.stringify(time)
+        localStorage.con = c
+        localStorage.time = t
+        // console.log(localStorage)
+        if(val){
+            $.ajax({
+                url:"/search",
+                type:"POST",
+                data:{"keys":val},
+                success:function (e) {
+                    if(e){
+                        $(".classify").css("display","none")
+                        $(".detail").css("display","block")
+                        $(".nones").css("display","none")
+                        $(".success").css("display","none")
+                    }else {
+                        $(".classify").css("display","none")
+                        $(".detail").css("display","block")
+                        $(".nones").css("display","none")
+                        $(".success").css("display","none")
+                    }
+                }
+            })
+        }
+        // if(val == "纽约时装周"){
+        //     $(".classify").css("display","none")
+        //     $(".detail").css("display","none")
+        //     $(".nones").css("display","none")
+        //     $(".success").css("display","block")
+        // }else {
+        //     $(".classify").css("display","none")
+        //     $(".detail").css("display","none")
+        //     $(".nones").css("display","block")
+        //     $(".success").css("display","none")
+        // }
+    })
+}
+$(".blocks").click(function (e) {
+    var val = $(this).html()
+    $("#search").val(val)
+})
+$(".styles").click(function (e) {
+    var val = $(this).html()
+    $("#search").val(val)
+})
+$(".btn").click(function () {
+        var con = []
+        var time = []
+        var localStorage = window.localStorage
+        var val = $("#search").val()
+        if(val){
+            $.ajax({
+                url:"/search/" + val,
+                type:"POST",
+                data:{"keys":val},
+                success:function (e) {
+                    if(e){
+                        $(".classify").css("display","none")
+                        $(".success").css("display","block")
+                    }else {
+                        $(".classify").css("display","none")
+                        $(".nones").css("display","block")
+                    }
+                }
+            })
+        }
+        var date = new Date()
+        var year = String(date.getFullYear())
+        var month = String(date.getMonth() + 1)
+        var day = String(date.getDate())
+        var hour = String(date.getHours())
+        var minute = String(date.getMinutes())
+        var curtime = year + "." + month + "." + day + " " + hour + ":" + minute
+        // console.log(localStorage.length)
+        if(localStorage.length != 0){
+            con = JSON.parse(localStorage.con)
+            time = JSON.parse(localStorage.time)
+        }
+        con.push(val)
+        time.push(curtime)
+        // console.log(con)
+        // console.log(time)
+        var c = JSON.stringify(con)
+        var t = JSON.stringify(time)
+        localStorage.con = c
+        localStorage.time = t
+        // console.log(localStorage)
+        // localStorage.clear()
+    })
+    $(".back").click(function () {
+        $(".change").css("display","block")
+        $(".back").css("display","none")
+        $(".history").css("display","none")
+        $(".classify").css("display","none")
+        $(".detail").css("display","none")
+        $(".nones").css("display","none")
+        $(".success").css("display","none")
+    })
+    $(".guanzhu").click(function(){
+        var that=$(this)
+        var id=that.attr('id')
+        var ajax=new XMLHttpRequest()
+        ajax.onload=function(ev){
+            if(ajax.response='done'){
+                that.html("已关注")
+            }
+        }
+        ajax.open("get","/addfollow?userid="+id)
+        ajax.send()
+    })
+</script>

@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="../static/css/myfabu.css">
+    <link rel="stylesheet" href="../static/css/setting.css">
+    <script src="../static/js/jquery.js"></script>
+    <script src="../static/js/rem.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <div class="header">
+            <div class="header_con">
+                <a href="javascript:history.back();">
+                    <div class="header_con_left">
+                        <img src="../static/img/imgs/xz4.png" alt="" width="16" height="16" style="display:block">
+                    </div>
+                </a>
+                <div class="header_con_text">消息设置</div>
+        </div>
+        </div>
+    <main> 
+         <div style="font-size:0.2rem;width: 7.03rem;margin: 0 auto;margin-top: 0.3rem;color: #72C1FF;font-weight: 600">
+            互动提醒
+        </div>
+            <div class="sty" style="margin-top:0.1rem;">
+                <a href="">
+                    
+                    <p style="display:block;float:left;font-size: 0.25rem;font-weight: 600;color: #666666;margin-left: 0.35rem;margin-top:0.35rem ">评论</p>
+                    <img src="../static/img/imgs/tuceng2.png" alt="" class='img_2' style="display:block;float: right;margin-right:0.15rem;margin-top: 0.2rem " width="45" height="40">
+                </a>
+            </div>
+            <div class="sty">
+                <a href="">
+                    <p style="display:block;float:left;font-size: 0.25rem;font-weight: 600;color: #666666;margin-left: 0.35rem;margin-top:0.35rem ">赞</p>
+                    <img src="../static/img/imgs/tuceng2.png" alt="" class='img_2' style="display:block;float: right;margin-right:0.15rem;margin-top: 0.2rem " width="45" height="40">
+                </a>
+            </div>
+            <div class="sty">
+                
+                    <p style="display:block;float:left;font-size: 0.25rem;font-weight: 600;color: #666666;margin-left: 0.35rem;margin-top:0.35rem ">时尚资讯</p>
+                    <div class='img_3 img_3_1' style="display:block;float: right;margin-right:0.15rem;margin-top: 0.3rem;background: #6EBFFF ">
+                    <div class='zixun' style="width:0.3rem;height:0.3rem;background:white;border-radius: 50%;margin-top: 0.05rem;margin-left: 0.1rem;"></div>
+                    </div>            
+            </div>
+            <div style="font-size:0.2rem;width: 7.03rem;margin: 0 auto;margin-top: 0.1rem;color: #B0B0B0;font-weight: 600;">
+                    开启后重要热点资讯实时推送
+                </div>
+            <div class="sty">
+                <a href="">
+                    <p style="display:block;float:left;font-size: 0.25rem;font-weight: 600;color: #666666;margin-left: 0.35rem;margin-top:0.35rem ">新粉丝</p>
+                    <img src="../static/img/imgs/tuceng2.png" alt="" class='img_2' style="display:block;float: right;margin-right:0.15rem;margin-top: 0.2rem " width="45" height="40">
+                </a>
+            </div>
+            <div class="sty">
+                <a href="">
+                    <p style="display:block;float:left;font-size: 0.25rem;font-weight: 600;color: #666666;margin-left: 0.35rem;margin-top:0.35rem ">获取新消息</p>
+                    <img src="../static/img/imgs/tuceng2.png" alt="" class='img_2' style="display:block;float: right;margin-right:0.15rem;margin-top: 0.2rem " width="45" height="40">
+                </a>
+            </div>
+            <div style="font-size:0.2rem;width: 7.03rem;margin: 0 auto;margin-top: 0.2rem;color: #FF699E;font-weight: 600">
+                    关注人动态
+                </div>
+            <div class="sty">
+                
+                    <p style="display:block;float:left;font-size: 0.25rem;font-weight: 600;color: #666666;margin-left: 0.35rem;margin-top:0.35rem ">允许将我的动态推送给粉丝</p>
+                    <div class='img_3 img_3_2' style="display:block;float: right;margin-right:0.15rem;margin-top: 0.3rem;background: #FF649B ">
+                        <div class='yunok' style="width:0.3rem;height:0.3rem;background:white;border-radius: 50%;margin-top: 0.05rem;margin-left: 0.1rem;"></div>
+                    </div>
+                </a>
+            </div>
+            <div style="font-size:0.2rem;width: 7.03rem;margin: 0 auto;margin-top: 0.1rem;color: #B0B0B0;font-weight: 600;">
+                    开启后你也不再接受关注人动态
+                </div>
+    
+    </main>
+</body>
+</html>
+<script>
+    var flag1=true
+    var flag2=true
+    $('.zixun').on('click',function(){
+        if(flag1){
+           $('.zixun').css({'margin-left':'0.45rem'})
+            $('.img_3_1').css({'background':'#F9F9F9'}) 
+            flag1=false
+        }else{
+            $('.zixun').css({'margin-left':'0.1rem'})
+            $('.img_3_1').css({'background':'#6EBFFF'}) 
+            flag1=true
+        }
+        
+    })
+    $('.yunok').on('click',function(){
+        if(flag2){
+            $('.yunok').css({'margin-left':'0.45rem'})
+            $('.img_3_2').css({'background':'#F9F9F9'})
+            flag2=false
+        }else{
+            $('.yunok').css({'margin-left':'0.1rem'})
+             $('.img_3_2').css({'background':'#FF649B'})
+             flag2=true
+        }
+        
+    })
+</script>

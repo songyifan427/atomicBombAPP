@@ -1,0 +1,279 @@
+/*
+* @Author: Administrator
+* @Date:   2018-07-28 20:54:50
+* @Last Modified by:   Administrator
+* @Last Modified time: 2018-08-03 09:06:19
+*/
+@import url('base.css');
+*{
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+body,html{
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+.shou_one{
+    width: 100%;
+    height: 100%;
+    background: #FAFAFA;
+    padding-top: 28%;
+    box-sizing: border-box;
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: none;
+}
+.hu{
+    width: 100%;
+    height: 100%;
+    background: #FAFAFA;
+    padding-top: 28%;
+    box-sizing: border-box;
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: block;
+}
+.shou_one_one{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+.shou_one_one_one{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+.quan{
+    width: 100%;
+    height: 100%;
+    background: #FAFAFA;
+    padding-top: 28%;
+    box-sizing: border-box;
+}
+.img1{
+    width: 2.62rem;
+    height: 2.62rem;
+    margin: 0 auto;
+}
+.img2{
+    width: 2.03rem;
+    height: 0.64rem;
+    margin: 0 auto;
+    margin-top: 0.38rem;
+}
+.img3{
+    width: 1.38rem;
+    height: 0.21rem;
+    margin: 0 auto;
+    margin-top: 0.24rem;
+}
+.img4{
+    width: 1.19rem;
+    height: 0.2rem;
+    margin: 0 auto;
+    margin-top: 4.57rem;
+}
+.img5{
+    width: 1.71rem;
+    height: 0.21rem;
+    margin: 0 auto;
+    margin-top: 0.27rem;
+}
+
+
+.quan1{
+    width: 100%;
+    height: 100%;
+    background: #FAFAFA;
+    padding-top: 28%;
+    box-sizing: border-box;
+    position: relative;
+}
+.img11{
+    width: 5.96rem;
+    height: 7.24rem;
+    position: absolute;
+    top: 2.58rem;
+    left:0.78rem;
+}
+.img21{
+    width: 0.78rem;
+    height: 0.7rem;
+    position: absolute;
+    top: 1.39rem;
+    left: 3.11rem;
+}
+.img31{
+    width: 0.54rem;
+    height: 0.59rem;
+    position: absolute;
+    top: 1.85rem;
+    right: 1.29rem;
+}
+.img41{
+    width: 0.62rem;
+    height: 0.66rem;
+    position: absolute;
+    top: 2.39rem;
+    left: 1.76rem;
+}
+.img51{
+    width: 0.6rem;
+    height: 0.6rem;
+    position: absolute;
+    top: 4.75rem;
+    right: 0.36rem;
+}
+.img61{
+    width: 0.51rem;
+    height: 0.51rem;
+    position: absolute;
+    top: 7.23rem;
+    left: 0.44rem;
+}
+.img71{
+    width: 0.46rem;
+    height: 0.46rem;
+    position: absolute;
+    top: 8.16rem;
+    right: 0.8rem;
+}
+.img81{
+    width: 2.91rem;
+    height: 0.62rem;
+    position: absolute;
+    top: 10.59rem;
+    left: 2.28rem;
+}
+.img91{
+    width: 4.45rem;
+    height: 0.41rem;
+    position: absolute;
+    top: 11.69rem;
+    left: 1.54rem;
+}
+.radis{
+    width: 0.62rem;
+    height: 0.12rem;
+    position: absolute;
+    top: 12.56rem;
+    left: 3.43rem;
+    display: flex;
+    justify-content: space-between
+}
+.radis div{
+    width: 0.12rem;
+    height: 0.12rem;
+    background: #BADAFB;
+    border-radius: 50%;
+}
+
+
+
+
+.quan2{
+    width: 100%;
+    height: 100%;
+    background: #FAFAFA;
+    padding-top: 28%;
+    box-sizing: border-box;
+    position: relative;
+}
+.img12{
+    width: 5.57rem;
+    height: 8.8rem;
+    position: absolute;
+    top: 1.68rem;
+    left:1.2rem;
+}
+
+.img82{
+    width: 0.75rem;
+    height: 1.12rem;
+    position: absolute;
+    top: 0.33rem;
+    right: 0.4rem;
+}
+.img102{
+    width: 2.91rem;
+    height: 0.62rem;
+    position: absolute;
+    top: 10.59rem;
+    left: 2.28rem;
+}
+.img92{
+    width: 4.45rem;
+    height: 0.41rem;
+    position: absolute;
+    top: 11.69rem;
+    left: 1.54rem;
+}
+
+
+.quan3{
+    width: 100%;
+    height: 100%;
+    background: #FAFAFA;
+    padding-top: 28%;
+    box-sizing: border-box;
+    position: relative;
+}
+.img13{
+    width: 5.43rem;
+    height: 8.91rem;
+    position: absolute;
+    top: 0.97rem;
+    left:1.09rem;
+}
+.quan3 span{
+    width: 1.3rem;
+    height: 0.64rem;
+    background: #F8D9E5;
+    border-radius: 0.32rem;
+    position: absolute;
+    top: 0.53rem;
+    right: 0.23rem;
+    text-align: center;
+    line-height: 0.64rem;
+    font-size: 0.24rem;
+    color: #FF649B;
+    font-weight: bolder;
+}
+.img103{
+    width: 2.91rem;
+    height: 0.62rem;
+    position: absolute;
+    top: 10.59rem;
+    left: 2.28rem;
+}
+.img93{
+    width: 4.45rem;
+    height: 0.41rem;
+    position: absolute;
+    top: 11.69rem;
+    left: 1.54rem;
+}
+.a{
+    width: 50%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+.b{
+    width: 50%;
+    height: 70%;
+    position: absolute;
+    top: 30%;
+    right: 0;
+
+}
+

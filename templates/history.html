@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="../static/js/rem.js"></script>
+    <script src="../static/js/jquery-3.2.1.js"></script>
+    <link rel="stylesheet" href="../static/css/history.css">
+</head>
+<body>
+    <header>
+        <div class="back"><a href="/search" style="display: block;width: 100%;height: 100%;"></a></div>
+        <span>历史搜索记录</span>
+        <div class="right"></div>
+    </header>
+    <div class="con_title"></div>
+    <div class="content">
+    </div>
+<div class="bottom" style="position:fixed;bottom:0;left:0;">
+        <div class="house">
+            <a href="javascript:;">
+                <img src="../static/img/index49.png" alt="" class="searchboximg">
+            </a>
+        </div>
+        <div class="searchbox">
+            <a href="/search">
+                <img src="../static/img/search49.png" alt="" class="searchboximg">
+            </a>
+        </div>
+        <div class="talk">
+            <a href="/message">
+                <img src="../static/img/xinzhuang86@2x.png" alt="" class="searchboximg">
+            </a>
+        </div>
+        <div class="myself">
+            <a href="/aboutme">
+                <img src="../static/img/Icon_User@2x.png" alt="" class="searchboximg">
+            </a>
+        </div>
+    </div>
+</body>
+</html>
+<script>
+    window.onload = function () {
+        var localStorage = window.localStorage
+        $(".right").click(function () {
+            localStorage.clear()
+            $(".content").html("")
+        })
+        if(localStorage.length !=0){
+            var con = JSON.parse(localStorage.con)
+            var time = JSON.parse(localStorage.time)
+            var neirong = ""
+            for(var i=0;i<con.length;i++){
+                neirong += "<div class='content'><div class='cons'> <img src='../static/img/图层33@2x.png' alt='' class='head_img'> <div class='con_a'><div class='names'>" + con[i] + "</div><div class='shuzi'><div class='tu'></div><span style='color: #dddddd;'>" + time[i] + "</span></div></div><div class='more'></div></div>"
+            }
+            $(".content").html(neirong)
+        }
+
+    }
+</script>

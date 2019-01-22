@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="../static/css/myfabu.css">
+    <script src="../static/js/jquery.js"></script>
+    <script src="../static/js/rem.js"></script>
+    <title>Document</title>
+</head>
+<style>
+.down{
+    width: 100%;
+    height: 90.1%;
+    background: #F2F2F2;
+    overflow: hidden;
+    text-align: center;
+}
+.d1{
+    width: 0.3rem;
+    height: 0.3rem;
+    border-radius: 50%;
+    background: #86CAF3;
+    margin: 0 auto;
+    margin-top: 35%;
+    padding-top: 0.09rem;
+    box-sizing: border-box;
+}
+.dd1{
+    width: 0.1rem;
+    height: 0.1rem;
+    border-radius: 50%;
+    background: #ffffff;
+    margin: 0 auto;
+}
+.d2{
+    width: 0.87rem;
+    height: 0.3rem;
+    border-radius: 0.15rem;
+    background: #45A2FF;
+    position: absolute;
+    top: -0.15rem;
+    left: 0.98rem;
+}
+.d3{
+    width: 2.88rem;
+    height: 3.53rem;
+    background: #EFEFEF;
+    margin: 0 auto;
+    margin-top: 0.05rem;
+    position: relative;
+    border-radius: 0.04rem;
+    padding-top: 0.36rem;
+    box-sizing: border-box;
+}
+.d_a{
+    width: 2.29rem;
+    height: 2.81rem;
+    background: #E5E4E4;
+    margin: 0 auto;
+    border-radius: 0.04rem;
+    padding-top: 0.37rem;
+    box-sizing: border-box;
+}
+.d_b{
+    width: 2.15rem;
+    height: 1.11rem;
+    background: #86CAF3;
+    margin-left: 1.14rem;
+    border-radius: 0.04rem;
+    padding-top: 0.32rem;
+    box-sizing: border-box;
+}
+.d_c{
+    width: 0.7rem;
+    height: 0.12rem;
+    background: #2591FD;
+    border-radius: 0.06rem;
+    margin-left: 0.34rem;
+}
+.d_d{
+    width: 1.34rem;
+    height: 0.12rem;
+    background: #2591FD;
+    border-radius: 0.06rem;
+    margin-left: 0.34rem;
+    margin-top: 0.18rem;
+}
+.d_f{
+    width: 0.96rem;
+    height: 0.16rem;
+    border-radius: 0.04rem;
+    margin-top: 0.45rem;
+    margin-left: 0.45rem;
+    background: #ffffff;
+}
+.d_h{
+    width: 1.39rem;
+    height: 0.16rem;
+    border-radius: 0.04rem;
+    margin-top: 0.27rem;
+    margin-left: 0.45rem;
+    background: #ffffff;
+}
+.text_a{
+    display: block;
+    width: auto;
+    height: 0.22rem;
+    line-height: 0.22rem;
+    color: #969696;
+    font-size: 0.22rem;
+    font-weight: bolder;
+    margin-top: 1.17rem;
+}
+.text_b{
+    display: block;
+    width: auto;
+    height: 0.22rem;
+    line-height: 0.22rem;
+    color: #969696;
+    font-size: 0.22rem;
+    font-weight: bolder;
+    margin-top: 0.09rem;
+}
+
+</style>
+<body>
+    <div class="header">
+        <div class="header_con">
+            <a href="javascript:history.back();">
+                <div class="header_con_left">
+                    <img src="../static/img/imgs/xz4.png" alt="" width="16" height="16" style="display:block">
+                </div>
+            </a>
+            <div class="header_con_text">我的发布</div>
+    </div>
+    </div>
+    {% if data %}
+    <main>
+        {% for item in data %}
+        <div class="sty" style="margin-top:0.3rem;">
+            <a href="">
+                <img src="../static/img/head/{{ item.imgurl }}" alt="" class="img_1" width="50" height="50" style="display:block;float:left;">
+                <div style="float:left">
+                    <p style="display:block;font-size: 0.25rem;font-weight: 600;color: #666666;margin-left: 0.15rem;margin-top:0.25rem ">{{ item.title }}</p>
+                    <p style="display:block;font-size: 0.15rem;font-weight: 600;color: #666666;margin-left: 0.15rem;margin-top:0.08rem ">{{ item.a_time }}</p>
+                </div>
+            </a>  
+            <a href="/myarticles/del/{{ item.articleid }}">
+                <img src="../static/img/imgs/Icon_Trashcan@2x.png" alt="" class='img_2' style="display:block;float: right;margin-right:0.15rem;margin-top: 0.2rem " width="45" height="40">
+            </a> 
+        </div>
+        {% endfor %}
+        
+    </main>
+    {% else %}
+    <div class="down">
+            <div class="d1">
+                <div class="dd1"></div>
+            </div>
+            <div class="d3">
+             <div class="d2"></div>
+             <div class="d_a">
+                 <div class="d_b">
+                     <div class="d_c"></div>
+                     <div class="d_d"></div>
+                 </div>
+                 <div class="d_f"></div>
+                 <div class="d_h"></div>
+             </div>
+            </div>
+            <span class="text_a">您还没有发布任何信息呢</span>
+            <span class="text_b">我们期待你的咨询呦</span>
+        </div>  
+    {% endif %} 
+</body>
+</html>

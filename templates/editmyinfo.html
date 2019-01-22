@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="../static/css/edit.css">
+    <link rel="stylesheet" href="../static/css/myfabu.css">
+    <script src="../static/js/jquery.js"></script>
+    <script src="../static/js/rem.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <div class="header">
+            <div class="header_con">
+                <a href="javascript:history.back();">
+                    <div class="header_con_left">
+                        <img src="../static/img/imgs/xz4.png" alt="" width="16" height="16" style="display:block">
+                    </div>
+                </a>
+                <div class="header_con_text">信息修改</div>
+        </div>
+        </div>
+    <div class="heade">
+        <img src="../static/img/imgs/ty24.png" alt="" style="display:block" width="65" height="65">
+        <img src="../static/img/imgs/yj6.png" alt="" style="display:block" width="120" height="120">
+        <img src="../static/img/imgs/yj7.png" alt="" style="display:block" width="65" height="65">
+    </div>
+    <form action="/setting/myinfo" class="biao" method="POST">
+        <div class="nicheng">
+            <img src="../static/img/imgs/yj4.png" alt="" style="display:block;float:left;margin-left: 0.1rem;" width="33" height="33">
+            <input type="text" class="nicheng_con" placeholder="请在此输入您的昵称" name='username' value="{{ data.username }}">
+        </div>
+        <div class="selfsty">
+            <img src="../static/img/imgs/ty26.png" alt="" style="display:block;float:left;margin-top: 0.25rem;margin-left: 0.2rem" width="8" height="8">
+            <textarea name="autograph" id="" cols="30" rows="10" class="selfsty_con" placeholder="在此输入您的个性签名..." >{{ data.autograph }}</textarea>
+        </div>
+        {% if data.sex ==0 %}
+        <div class="nan">
+            <img src="../static/img/imgs/xz6.png" alt="" style="display:block">
+            <p>男士</p>
+            <input type="radio" name="sex" value="0" checked="checked">
+        </div>
+        <div class="nv">
+            <img src="../static/img/imgs/xz7.png" alt="" style="display:block">
+            <p>女士</p>
+            <input type="radio" name="sex" value="1">
+        </div>
+        {% else %}
+        <div class="nan">
+                <img src="../static/img/imgs/xz6.png" alt="" style="display:block">
+                <p>男士</p>
+                <input type="radio" name="sex" value="0">
+            </div>
+            <div class="nv">
+                <img src="../static/img/imgs/xz7.png" alt="" style="display:block">
+                <p>女士</p>
+                <input type="radio" name="sex" value="1" checked="checked">
+            </div>
+        {% endif %}
+    <div class="end">
+        <a href="/aboutme"><div class="yuan" style="background:#FD4383">取消修改</div></a>
+        <div class="yuan" style="background:#32D1DC"><button type="submit" style="border:0;outline:none;background-color: transparent" class="butt">确认修改</button></div>
+    </div>
+    </form>
+</body>
+</html>
