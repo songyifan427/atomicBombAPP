@@ -1,6 +1,9 @@
 from flask import Flask,render_template,request,redirect,make_response,session
 import pymysql
 
+def connect():
+    db = pymysql.connect('localhost', 'root', '123456', 'lixiaohuan', charset='utf8',cursorclass=pymysql.cursors.DictCursor)
+    return db
 
 app = Flask(__name__)
 app.secret_key="123456"
@@ -23,8 +26,7 @@ def index():
         return redirect('/start')
     if(session.get("login")=="yes"):
         userid = session.get("userid")
-        db = pymysql.connect('localhost', 'lin', '123456', 'lixiaohuan', charset='utf8',
-                             cursorclass=pymysql.cursors.DictCursor)
+        db = connect()
         cur = db.cursor()
         cur.execute('select cateids from user where userid=%s',(userid))
         cateids= cur.fetchone()
@@ -54,8 +56,7 @@ def index():
 @app.route('/gaze')
 def gaze():
     userid = session.get("userid")
-    db = pymysql.connect('localhost', 'lin', '123456', 'lixiaohuan', charset='utf8',
-                         cursorclass=pymysql.cursors.DictCursor)
+    db = connect()
     cur = db.cursor()
     cur.execute('select fallow from user where userid = %s', (userid))
     fallows = cur.fetchone()
@@ -85,8 +86,7 @@ def gaze():
 @app.route('/message')
 def message():
     userid=session.get("userid")
-    db = pymysql.connect('localhost', 'lin', '123456', 'lixiaohuan', charset='utf8',
-                         cursorclass=pymysql.cursors.DictCursor)
+    db = connect()
     cur = db.cursor()
     cur.execute('select articleid from article where userid = %s', (userid))
     articleid = cur.fetchall()
@@ -112,8 +112,7 @@ def message():
 @app.route('/fans')
 def fans():
     userid = session.get("userid")
-    db = pymysql.connect('localhost', 'lin', '123456', 'lixiaohuan', charset='utf8',
-                         cursorclass=pymysql.cursors.DictCursor)
+    db = connect()
     cur = db.cursor()
     cur.execute('select fans from user where userid = %s', (userid))
     fans = cur.fetchall()
@@ -129,8 +128,7 @@ def fans():
 @app.route('/fallow')
 def fallow():
     userid = session.get("userid")
-    db = pymysql.connect('localhost', 'lin', '123456', 'lixiaohuan', charset='utf8',
-                         cursorclass=pymysql.cursors.DictCursor)
+    db = connect()
     cur = db.cursor()
     cur.execute('select fallow from user where userid = %s', (userid))
     fallow = cur.fetchall()
@@ -149,8 +147,7 @@ def fallow():
 @app.route('/addfollow/<userid>')
 def addfollow(userid):
     myid = session.get("userid")
-    db = pymysql.connect('localhost', 'lin', '123456', 'lixiaohuan', charset='utf8',
-                         cursorclass=pymysql.cursors.DictCursor)
+    db = connect()
     cur = db.cursor()
     #添加自己的fallow
     cur.execute('select fallow from user where userid = %s', (myid))
@@ -172,8 +169,7 @@ def addfollow(userid):
 @app.route('/myarticles')
 def myarticles():
     userid = session.get("userid")
-    db = pymysql.connect('localhost', 'lin', '123456', 'lixiaohuan', charset='utf8',
-                         cursorclass=pymysql.cursors.DictCursor)
+    db = connect()
     cur = db.cursor()
     cur.execute('select * from article where userid = %s and a_state = %s order by userid desc limit 1', (userid,1))
     data = cur.fetchall()
@@ -185,8 +181,7 @@ def myarticles():
 @app.route('/myarticles/del/<articleid>')
 def delarticles(articleid):
     userid = session.get("userid")
-    db = pymysql.connect('localhost', 'lin', '123456', 'lixiaohuan', charset='utf8',
-                         cursorclass=pymysql.cursors.DictCursor)
+    db = connect()
     cur = db.cursor()
     cur.execute('select userid from article where articleid = %s',(articleid))
     theuserid = cur.fetchone()
@@ -200,8 +195,7 @@ def delarticles(articleid):
 #预告提醒
 @app.route('/notice')
 def notice():
-    db = pymysql.connect('localhost', 'lin', '123456', 'lixiaohuan', charset='utf8',
-                         cursorclass=pymysql.cursors.DictCursor)
+    db = connect()
     cur = db.cursor()
     cur.execute('select * from notice where n_state = 1 ')
     data = cur.fetchall()
@@ -228,8 +222,7 @@ import json
 @app.route('/search',methods=["POST"])
 def search():
     keys=request.form["keys"]
-    db = pymysql.connect('localhost', 'lin', '123456', 'lixiaohuan', charset='utf8',
-                         cursorclass=pymysql.cursors.DictCursor)
+    db = connect()
     cur = db.cursor()
     cur.execute('select * from user where find_in_set(%s,username)',(keys))
     data1 = cur.fetchall()
@@ -254,8 +247,7 @@ def search():
 #类别搜索
 @app.route('/search/<catename>')
 def searchcate(catename):
-    db = pymysql.connect('localhost', 'lin', '123456', 'lixiaohuan', charset='utf8',
-                         cursorclass=pymysql.cursors.DictCursor)
+    db =  connect()
     cur = db.cursor()
     cur.execute('select * from article where cateid = and exists (select cateid from category where catename=%s) desc limit 5',(catename))
     data = cur.fetchall()
@@ -274,8 +266,7 @@ def searchcate(catename):
 #文章详情
 @app.route('/article/<articleid>')
 def article(articleid):
-    db = pymysql.connect('localhost', 'lin', '123456', 'lixiaohuan', charset='utf8',
-                         cursorclass=pymysql.cursors.DictCursor)
+    db = connect()
     cur = db.cursor()
     cur.execute('select * from article where articleid = %s',(articleid))
     data = cur.fetchall()
@@ -294,8 +285,7 @@ def article(articleid):
 def comment(articleid):
     userid = session.get("userid")
     c_content = request.form["c_content"]
-    db = pymysql.connect('localhost', 'lin', '123456', 'lixiaohuan', charset='utf8',
-                         cursorclass=pymysql.cursors.DictCursor)
+    db = connect()
     cur = db.cursor()
     cur.execute('insert into comment(articleid,userid,c_content) values (%s,%s,%s)',(articleid,userid,c_content))
     db.commit()
@@ -307,8 +297,7 @@ def comment(articleid):
 @app.route('/aboutme')
 def aboutme():
     userid = session.get("userid")
-    db = pymysql.connect('localhost', 'lin', '123456', 'lixiaohuan', charset='utf8',
-                         cursorclass=pymysql.cursors.DictCursor)
+    db = connect()
     cur = db.cursor()
     cur.execute('select * from user where userid = %s',(userid))
     data = cur.fetchone()
@@ -320,8 +309,7 @@ def aboutme():
 #查看他人资料
 @app.route('/user/<userid>')
 def user(userid):
-    db = pymysql.connect('localhost', 'lin', '123456', 'lixiaohuan', charset='utf8',
-                         cursorclass=pymysql.cursors.DictCursor)
+    db = connect()
     cur = db.cursor()
     cur.execute('select * from user where userid = %s)', (userid))
     data = cur.fetchone()
@@ -349,8 +337,7 @@ def settingmessage():
 @app.route('/setting/myinfo',methods=["GET"])
 def opensettingmyinfo():
     userid = session.get("userid")
-    db = pymysql.connect('localhost', 'lin', '123456', 'lixiaohuan', charset='utf8',
-                         cursorclass=pymysql.cursors.DictCursor)
+    db = connect()
     cur = db.cursor()
     cur.execute('select username,autograph,sex from user where userid = %s', (userid))
     data = cur.fetchone()
@@ -365,8 +352,7 @@ def settingmyinfo():
     username = request.form["username"]
     autograph = request.form["autograph"]
     sex = request.form["sex"]
-    db = pymysql.connect('localhost', 'lin', '123456', 'lixiaohuan', charset='utf8',
-                         cursorclass=pymysql.cursors.DictCursor)
+    db = connect()
     cur = db.cursor()
     cur.execute('update user set username=%s,autograph=%s,sex=%s  where userid = %s', (username,autograph,sex,userid))
     db.commit()
@@ -383,8 +369,7 @@ def login():
 def checklogin():
     usertel = request.form["usertel"]
     password = request.form["password"]
-    db = pymysql.connect('localhost', 'lin', '123456', 'lixiaohuan', charset='utf8',
-                         cursorclass=pymysql.cursors.DictCursor)
+    db = connect()
     cur = db.cursor()
     cur.execute('select * from user where usertel=%s and password=%s',(usertel,password))
     result=cur.fetchone()
@@ -422,8 +407,7 @@ def register():
     repassword = request.form["repassword"] or ''
     if password != repassword or password == '' or usertel == '':
         return redirect('/register')
-    db = pymysql.connect('localhost', 'lin', '123456', 'lixiaohuan', charset='utf8',
-                         cursorclass=pymysql.cursors.DictCursor)
+    db = connect()
     cur = db.cursor()
     print(usertel)
     cur.execute('select userid from user where usertel=%s', (usertel))
@@ -443,8 +427,7 @@ def openregister_uphead():
 @app.route('/register/uphead',methods=["POST"])
 def register_uphead():
     usertel = session.get('usertel')
-    db = pymysql.connect('localhost', 'lin', '123456', 'lixiaohuan', charset='utf8',
-                         cursorclass=pymysql.cursors.DictCursor)
+    db = connect()
     cur = db.cursor()
     headurl = 'unknow'
     if usertel:
@@ -467,8 +450,7 @@ def register_upinterest():
     sex = request.form["sex"]
     cateids = request.form["cateids"]
     usertel = session.get('usertel') or ''
-    db = pymysql.connect('localhost', 'lin', '123456', 'lixiaohuan', charset='utf8',
-                         cursorclass=pymysql.cursors.DictCursor)
+    db = connect()
     cur = db.cursor()
     if usertel:
         cur.execute('update user set username = %s,sex = %s,cateids = %s,isfinished = %s where usertel = %s', (username,sex,cateids,'2',usertel))
