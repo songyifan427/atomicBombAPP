@@ -2,6 +2,7 @@
 @李晓欢 使用方法：
 
 1.git clone 链接到本地
+
 下载github，fork这个项目，打开git bash输入git clone + 刚才复制的链接
 
 2.数据库中导入  lixiaohuan.sql 文件
