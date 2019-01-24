@@ -41,11 +41,11 @@
 
 </style>
 <body>
-    <div class="top">消 息 中 心</div>
+    <div class="top" style="font-weight: 600">消 息 中 心</div>
     <div class="center">
         <div class="like">
             <div class="likeyou">
-                <a href="/fans">
+                <a href="/like">
                     <img src="../static/img/tuceng55@2x.png" alt="">
                     <div class="likes">
                         <span>喜欢·你的</span>
@@ -77,15 +77,14 @@
                 <img src="../static/img/head/{{ item.headurl }}" alt="" id="img019">
                 <div class="oth">
                     <div class="top1">
-                        <div class="color"></div>
-                        <!-- <img src="../static/img/head/{{ item.headurl }}" alt=""> -->
+                        <div class="color" style="background-color: #ffffff"></div>
                         <div class="top2">
                             <span>{{ item.username }}</span>
                             <span>{{ item.c_time }}</span>
                         </div>
                         <div class="bottom2">
                             <div class="sons"></div>
-                            <span>回复了你： {{ c_content }}</span>
+                            <span>回复了你： {{ item.c_content }}</span>
                         </div>
                     </div>
                     <div class="bottom1">

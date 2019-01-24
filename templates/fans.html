@@ -17,6 +17,7 @@
     </div>
     <div class="center">
         <div class="other">
+        {% if data %}
             {% for item in data %}
                 <div class="point">
                     <img src="../static/img/head/{{ item.headurl }}" alt="">
@@ -28,10 +29,12 @@
                             <!-- <span>{{ item.c_time }}</span> -->
                         </div>
                     </div>
-                    <div class="color"></div>
                     <!-- <img src="../static/img/head/{{ item.headurl }}" alt=""> -->
                 </div>
             {% endfor %}
+         {% else %}
+            <div class="point"><p style="margin: 0 auto;font-size: 0.26rem;text-align: center">暂无内容</p></div>
+         {% endif %}
         </div>
     </div>
     

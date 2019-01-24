@@ -92,10 +92,11 @@ def message():
     articleid = cur.fetchall()
     aid=""
     for i in range(len(articleid)):
-        aid=aid+articleid[i][articleid]+','
+        aid+=str(articleid[i]["articleid"])
+        aid+=','
     if aid:
         aid=aid[0:-1]
-        cur.execute('select * from comment where articleid in %s desc limit 10', (aid))
+        cur.execute('select * from comment where articleid in ('+aid+') order by commentid desc limit 10')
         data = cur.fetchall()
         if data:
             for i in range(len(data)):
@@ -108,6 +109,27 @@ def message():
                 return render_template('information.html', data=data)
     return render_template('information.html')
 
+#喜欢你的
+@app.route('/like')
+def like():
+    userid = session.get("userid")
+    db = connect()
+    cur = db.cursor()
+    cur.execute('select fans from user where userid = %s', (userid))
+    fans = cur.fetchone()
+    fans = fans["fans"][0:-1]
+    if fans:
+        cur.execute('select * from user where userid in ('+fans+')')
+        data = cur.fetchall()
+        print(data)
+        db.close()
+        cur.close()
+        return render_template('fans.html', data=data)
+    db.close()
+    cur.close()
+    res = make_response(render_template('fans.html'))
+    return res
+
 #我的粉丝
 @app.route('/fans')
 def fans():
@@ -115,13 +137,18 @@ def fans():
     db = connect()
     cur = db.cursor()
     cur.execute('select fans from user where userid = %s', (userid))
-    fans = cur.fetchall()
-    fans = fans[0:-1]
-    cur.execute('select * from user where userid = %s', (fans))
-    data = cur.fetchall()
+    fans = cur.fetchone()
+    fans = fans["fans"][0:-1]
+    if fans:
+        cur.execute('select * from user where userid in ('+fans+')')
+        data = cur.fetchall()
+        print(data)
+        db.close()
+        cur.close()
+        return render_template('fensi.html', data=data)
     db.close()
     cur.close()
-    res = make_response(render_template('fans.html', data=data))
+    res = make_response(render_template('fensi.html'))
     return res
 
 #我的关注
@@ -131,17 +158,15 @@ def fallow():
     db = connect()
     cur = db.cursor()
     cur.execute('select fallow from user where userid = %s', (userid))
-    fallow = cur.fetchall()
-    fallow = fallow[0:-1]
+    fallow = cur.fetchone()
+    fallow = fallow["fallow"][0:-1]
     if fallow:
-        cur.execute('select * from user where userid = %s', (fallow))
+        cur.execute('select * from user where userid in ('+fallow+')')
         data = cur.fetchall()
         db.close()
         cur.close()
-    else:
-        data=''
-    res = make_response(render_template('mylike.html', data=data))
-    return res
+        return render_template('mylike.html', data=data)
+    return render_template('mylike.html')
 
 #加关注
 @app.route('/addfollow/<userid>')
@@ -274,6 +299,10 @@ def article(articleid):
     catename = cur.fetchone()
     cur.execute('select * from comment where articleid = %s',(articleid))
     comment = cur.fetchall()
+    for i in range(len(comment)):
+        cur.execute('select username from user where userid = %s', (comment[i]["userid"]))
+        commentuname = cur.fetchone()
+        comment[i].setdefault('username', commentuname["username"])
     cur.execute('select * from user where userid = %s', (int(data["userid"])))
     auser = cur.fetchone()
     db.close()
@@ -286,6 +315,7 @@ def article(articleid):
 def comment(articleid):
     userid = session.get("userid")
     c_content = request.form["c_content"]
+    print(c_content)
     db = connect()
     cur = db.cursor()
     cur.execute('insert into comment(articleid,userid,c_content) values (%s,%s,%s)',(articleid,userid,c_content))
@@ -312,11 +342,11 @@ def aboutme():
 def user(userid):
     db = connect()
     cur = db.cursor()
-    cur.execute('select * from user where userid = %s)', (userid))
+    cur.execute('select * from user where userid = %s', (userid))
     data = cur.fetchone()
     data.setdefault('fallownum', data["fallow"].count(","))
     data.setdefault('fansnum', data["fans"].count(","))
-    cur.execute('select * from article where userid = %s desc limit 2)', (userid))
+    cur.execute('select * from article where userid = %s  order by articleid desc limit 2', (userid))
     article = cur.fetchall()
     db.close()
     cur.close()

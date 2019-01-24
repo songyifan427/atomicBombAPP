@@ -114,19 +114,17 @@
                     <a href="javascript:;"><span class="d" style="float: right;font-size: 0.21rem;">查看全部评论</span></a>
                     <a href="javascript:;"><img src="../static/img/zm82.png" alt=""></a>
             </div>
-            <div style="width: 100%">
+            <div style="width: 7.02rem;height: auto;margin: 0 auto;">
             {% if comment %}
                 {%  for item in comment %}
-                <div style="background-color: #ffffff;margin: 0.15rem 0">
-                    <div class="wen">{{ item.c_content }}</div>
-                    <div class="riqi">
-                        <div class="a">
-                            <div class="b"></div>
-                        </div>
-                        &nbsp;&nbsp;{{ item.c_time }}
-                    </div>
-                    <img src="../static/img/zm79.png" alt="" class="c">
-                </div>
+                <div class="ping" style="width: 7.02rem; height: 1.03rem;margin: 0 auto;background: #ffffff;margin-bottom: 0.2rem;margin-top: 0.2rem;padding: 0.2rem 0.4rem;box-sizing: border-box;">
+                   <div class="pl" style="font-size: 0.3rem;font-weight: bold;color: #666666;margin-bottom: 0.15rem">{{ item.c_content }}</div>
+                    <a href="/user/{{ item.userid }}"><div class="pname" style="font-size:0.2rem; float: left;color: #56DE7F">{{ item.username }}</div></a>
+                    <div class="pqi" style="font-size: 0.2rem; float: left;margin-left: 2.8rem;color:  #B2B2B2;" >{{ item.c_time }}</div>
+                 </div>
+
+
+
                 {%  endfor %}
             {% else %}
                 <span class="l">您暂时还没有任何评论呦！</span>
@@ -160,11 +158,10 @@
                 <span class="bb">.</span>
                 <span class="cc">120</span>
             </div>
-            <form action="/commtent/{{ data.articleid }}" class="ru" method="POST">
-                <textarea name="" id="myArea" class="c_content" cols="40" rows="3" placeholder="在此处输入评论内容"></textarea>
+            <form action="/comment/{{ data.articleid }}" class="ru" method="POST">
+                <textarea name="c_content" id="myArea" class="c_content" cols="40" rows="3" placeholder="在此处输入评论内容"></textarea>
                 <img src="../static/img/zm55.png" alt="" class="y">
-                <input type = "image" name = "..." src = "../static/img/zm56.png" class="m">
-                
+                <input type = "image" src = "../static/img/zm56.png" class="m">
                 <img src="../static/img/zm57.png" alt="" class="n">
                 <img src="../static/img/zm58.png" alt="" class="v">
                 <img src="../static/img/zm59.png" alt="" class="x">
