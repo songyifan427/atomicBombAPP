@@ -32,9 +32,21 @@
             <span style="color: #444E59;;">搜索</span>
             <span style="color: #FF649B">详情</span>
             </div>
-                <div id="detail_article">
-
+            {% for item in data %}
+            <a href="/article/{{ item.articleid }}">
+        <div class="cons">
+            <img src="../static/img/articleurl/{{ item.imgurl }}" alt="" class="head_img">
+            <div class="con_a">
+                <div class="names">{{ item.title }}</div>
+                <div class="shuzi">
+                    <div class="tu"></div>
+                    <span style="color: #dddddd;">{{ item.up }}</span>
                 </div>
+            </div>
+            <div class="more"></div>
+        </div>
+                </a>
+            {% endfor %}
          <!--<div class="cons">-->
             <!--<img src="../static/img/0fb3c340320237.5954ed08d4f3a@2x.png" alt="" class="head_img">-->
             <!--<div class="con_a">-->
@@ -99,7 +111,7 @@
                 <div class="styles" style="color: #FF649B">民族</div>
             </div>
         </div>
-            <button class="btn">确定</button>
+        <button class="btn">确定</button>
         <div class="blank" style="width: 100%;height: 200px"></div>
             </div>
         <div class="nones" style="display: none;">
@@ -137,9 +149,43 @@
                 <span style="color: #444E59;;">文章</span>
                 <span style="color: #FF649B">结果</span>
             </div>
-            <div id="success_article">
-
+            {% for item in data %}
+            <a href="/article/{{ item.articleid }}">
+            <div class="sou_detail">
+                <div class="img_detail">
+                    <img src="../static/img/articleurl/{{ item.imgurl }}" alt="" class="img_detail">
+                    <div class="tou">
+                        <span style="margin-left: 20px">{{ item.title }}</span>
+                    </div>
+                </div>
+                <div class="con_detail">
+                    <div class="img_head">
+                        <img src="../static/img/head/{{ item.headurl }}" alt="" class="img_head">
+                    </div>
+                    <div class="con_names">
+                        <div style="font-size: 16px;font-weight: bold;color: #8D8D8D">{{ item.username }}</div>
+                        <div style="background-color: #FFE9EE;color: #FF396C;" class="guanzhu" id="{{ item.userid }}">关注</div>
+                    </div>
+                    <div class="con_names">
+                        <div style="font-size: 10px;color: #CBCBCB;text-align: right;width: 150px">{{ item.a_time }}</div>
+                        <div class="share">
+                            <div class="firstly" style="display: flex;justify-content: left">
+                                <div class="to"></div>
+                            </div>
+                            <div class="message" style="display: flex;justify-content: left">
+                                <div class="message_to"></div>
+                                <span style="font-size: 10px;color: #CBCBCB">{{ item.comment_num }}</span>
+                            </div>
+                            <div class="love" style="display: flex;justify-content: left">
+                                <div class="love_to"></div>
+                                <span style="font-size: 10px;color: #CBCBCB">{{ item.up }}</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
+                </a>
+            {% endfor %}
             <div class="sou_detail">
                 <div class="img_detail">
                     <img src="../static/img/e944b468971463.5b7051eb9444e@2x.png" alt="" class="img_detail">
@@ -176,8 +222,21 @@
                 <span style="color: #444E59;;">博主</span>
                 <span style="color: #FF649B">结果</span>
             </div>
-        <div id="success_user">
-
+            {% for item1 in data1 %}
+            <a href="/user/{{ item1.userid }}">
+            <div class="cons" style="margin-top: 20px">
+            <img src="../static/img/head/{{ item1.headurl }}" alt="" class="head_img">
+            <div class="con_a">
+                <div class="names">{{ item1.username }}</div>
+                <div class="shuzi">
+                    <div class="tu"></div>
+                    <span style="color: #dddddd;">{{ item1.r_tima }}</span>
+                </div>
+            </div>
+            <div class="more"></div>
+        </div>
+                </a>
+            {% endfor %}
         </div>
     </div>
     <div class="bottom" style="position:fixed;bottom:0;left:0;">
@@ -231,14 +290,11 @@ window.onload = function(){
 
                     if(e){
                         e=JSON.parse(e)
-                        console.log(e)
-                        var data = e.data
-                        var data1 = e.data1
-                        var detail = ""
-                        for(var i=0;i<data.length;i++){
-                            detail += '<a href="/article/'+ data[i].articleid +'"><div class="cons"><img src="../static/img/articleurl/'+ data[i].imgurl +'" alt="" class="head_img"><div class="con_a"><div class="names">'+ data[i].title +'</div><div class="shuzi"><div class="tu"></div><span style="color: #dddddd;">'+ data[i].up +'</span></div></div><div class="more"></div></div></a>'
-                        }
-                        $("#detail_article").html(detail)
+                        $(".classify").css("display","none")
+                        $(".detail").css("display","block")
+                        $(".nones").css("display","none")
+                        $(".success").css("display","none")
+                    }else {
                         $(".classify").css("display","none")
                         $(".detail").css("display","block")
                         $(".nones").css("display","none")
@@ -287,24 +343,14 @@ window.onload = function(){
                 success:function (e) {
                     if(e){
                         $(".classify").css("display","none")
-                        $(".detail").css("display","none")
+                        $(".detail").css("display","block")
                         $(".nones").css("display","none")
-                        $(".success").css("display","block")
-                        var data = e.data
-                        var data1 = e.data1
-                        var aa = ""
-                        var ss = ""
-                        for(var i=0;i<data.length;i++){
-                            ss += '<a href="/article/' + data[i].articleid + '"><div class="sou_detail"><div class="img_detail"><img src="../static/img/articleurl/'+ data[i].imgurl +'" alt="" class="img_detail"><div class="tou"><span style="margin-left: 20px">'+ data[i].title +'</span></div></div><div class="con_detail"><div class="img_head"><img src="../static/img/head/'+ data[i].headurl +'" alt="" class="img_head"></div><div class="con_names"><div style="font-size: 16px;font-weight: bold;color: #8D8D8D">'+ data[i].username +'</div><div style="background-color: #FFE9EE;color: #FF396C;" class="guanzhu" id="'+ data[i].userid +'">关注</div></div><div class="con_names"><div style="font-size: 10px;color: #CBCBCB;text-align: right;width: 150px">'+ data[i].a_time +'</div><div class="share"><div class="firstly" style="display: flex;justify-content: left"><div class="to"></div></div><div class="message" style="display: flex;justify-content: left"><div class="message_to"></div><span style="font-size: 10px;color: #CBCBCB">'+ data[i].comment_num +'</span></div><div class="love" style="display: flex;justify-content: left"><div class="love_to"></div><span style="font-size: 10px;color: #CBCBCB">'+ data[i].up +'</span></div></div></div></div></div></a>'
-                            aa += '<a href="/user/'+ data1[i].userid +'"><div class="cons" style="margin-top: 20px"><img src="../static/img/head/'+ data1[i].headurl +'" alt="" class="head_img"><div class="con_a"><div class="names">'+ data1[i].username +'</div><div class="shuzi"><div class="tu"></div><span style="color: #dddddd;">'+ data1[i].r_tima +'</span></div></div><div class="more"></div></div></a></div>'
-                        }
-                        $("#success_user").html(aa)
-                        $("#success_article").html(ss)
+                        $(".success").css("display","none")
                     }else {
                         $(".classify").css("display","none")
-                        $(".detail").css("display","none")
+                        $(".detail").css("display","block")
                         $(".nones").css("display","none")
-                        $(".success").css("display","block")
+                        $(".success").css("display","none")
                     }
                 }
             })
@@ -344,13 +390,6 @@ $(".btn").click(function () {
                     if(e){
                         $(".classify").css("display","none")
                         $(".success").css("display","block")
-                        var data = e.data
-                        var data1 = e.data1
-                        var ss = ""
-                        for(var i=0;i<data.length;i++){
-                            ss += '<a href="/article/' + data[i].articleid + '"><div class="sou_detail"><div class="img_detail"><img src="../static/img/articleurl/'+ data[i].imgurl +'" alt="" class="img_detail"><div class="tou"><span style="margin-left: 20px">'+ data[i].title +'</span></div></div><div class="con_detail"><div class="img_head"><img src="../static/img/head/'+ data[i].headurl +'" alt="" class="img_head"></div><div class="con_names"><div style="font-size: 16px;font-weight: bold;color: #8D8D8D">'+ data[i].username +'</div><div style="background-color: #FFE9EE;color: #FF396C;" class="guanzhu" id="'+ data[i].userid +'">关注</div></div><div class="con_names"><div style="font-size: 10px;color: #CBCBCB;text-align: right;width: 150px">'+ data[i].a_time +'</div><div class="share"><div class="firstly" style="display: flex;justify-content: left"><div class="to"></div></div><div class="message" style="display: flex;justify-content: left"><div class="message_to"></div><span style="font-size: 10px;color: #CBCBCB">'+ data[i].comment_num +'</span></div><div class="love" style="display: flex;justify-content: left"><div class="love_to"></div><span style="font-size: 10px;color: #CBCBCB">'+ data[i].up +'</span></div></div></div></div></div></a>'
-                        }
-                        $("#success_article").html(ss)
                     }else {
                         $(".classify").css("display","none")
                         $(".nones").css("display","block")

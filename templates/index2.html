@@ -67,6 +67,7 @@
         </div>
     </div>
     <div class="attentions">
+        {% if data %}
         {% for item in data %}
             <div class="atten">
                 <a href="/article/{{ item.articleid }}">
@@ -105,6 +106,9 @@
                 </div>
             </div>
         {% endfor %}
+        {% else %}
+            <p style="font-size: 0.25rem;display: block;line-height: 0.5rem;color: #ccc;width: 100%;text-align: center">您还没有关注任何人</p>
+        {% endif %}
         <div class="dixian">
             <div class="lines">
                 <div class="line"></div>
@@ -119,19 +123,19 @@
                 <img src="../static/img/Icon_Home@2x.png" alt="" class="searchboximg">
             </a>
         </div>
-        <div class="home">
+        <div class="myself">
             <a href="/search">
                 <img src="../static/img/xinzhuang49@2x.png" alt="" class="searchboximg">
             </a>
         </div>
-        <div class="home">
+        <div class="talk">
             <a href="/message">
                 <img src="../static/img/xinzhuang86@2x.png" alt="" class="searchboximg">
             </a>
         </div>
-        <div class="home">
+        <div class="house">
             <a href="/aboutme">
-                <img src="../static/img/Icon_User2@2x.png" alt="" class="searchboximg">
+                <img src="../static/img/Icon_User@2x.png" alt="" class="searchboximg">
             </a>
         </div>
     </div>

@@ -70,7 +70,7 @@
                 <span style="color:#FF649B;">标签</span>
             </div>
             <div class="buut">
-                <span>{{ catename }}</span>
+                <span>{{ catename.catename }}</span>
             </div>
             <div class="ti">
                     <div class="nav">
@@ -126,7 +126,7 @@
                     <a href="javascript:;"><img src="../static/img/zm82.png" alt=""></a>
             </div>
             {% if comment %}
-                {{ for item in comment }}
+                {%  for item in comment %}
                 <li>
                     <div class="wen">{{ item.c_content }}</div>
                     <div class="riqi">
@@ -139,8 +139,8 @@
                 </li>
                 {% else %}
                 <span class="l">您暂时还没有任何评论呦！</span>
-                {{ endfor }}
-            {% enfif %}
+                {%  endfor %}
+            {% endif %}
             <div class="user">
                 <span class="name">{{ data.username }}</span>
                 <script >
@@ -171,7 +171,7 @@
             <form action="/commtent/{{ data.articleid }}" class="ru" method="POST">
                 <textarea name="" id="myArea" class="c_content" cols="40" rows="3" placeholder="在此处输入评论内容"></textarea>
                 <img src="../static/img/zm55.png" alt="" class="y">
-                <input type = "image"' name = "..." src = "../static/img/zm56.png" class="m">
+                <input type = "image" name = "..." src = "../static/img/zm56.png" class="m">
                 
                 <img src="../static/img/zm57.png" alt="" class="n">
                 <img src="../static/img/zm58.png" alt="" class="v">

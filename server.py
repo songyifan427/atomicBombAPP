@@ -10,10 +10,6 @@ app.secret_key="123456"
 def error(error):
     return render_template('404.html')
 
-@app.errorhandler(400)
-def error(error):
-    return render_template('')
-
 #启动闪屏
 @app.route('/start')
 def start():
@@ -27,7 +23,7 @@ def index():
         return redirect('/start')
     if(session.get("login")=="yes"):
         userid = session.get("userid")
-        db = pymysql.connect('localhost', 'root', '123456', 'lixiaohuan', charset='utf8',
+        db = pymysql.connect('localhost', 'lin', '123456', 'lixiaohuan', charset='utf8',
                              cursorclass=pymysql.cursors.DictCursor)
         cur = db.cursor()
         cur.execute('select cateids from user where userid=%s',(userid))
@@ -58,13 +54,15 @@ def index():
 @app.route('/gaze')
 def gaze():
     userid = session.get("userid")
-    db = pymysql.connect('localhost', 'root', '123456', 'lixiaohuan', charset='utf8',
+    db = pymysql.connect('localhost', 'lin', '123456', 'lixiaohuan', charset='utf8',
                          cursorclass=pymysql.cursors.DictCursor)
     cur = db.cursor()
     cur.execute('select fallow from user where userid = %s', (userid))
     fallows = cur.fetchone()
-    fallows = ' '+fallows['fallow'][0:-1]+' '
-    cur.execute('select * from article where userid = '+fallows+' order by articleid desc limit 5')
+    fallows =fallows['fallow'][0:-1]
+    if not fallows:
+        return render_template('index2.html')
+    cur.execute('select * from article where userid in '+fallows+' order by articleid desc limit 5')
     data=cur.fetchall()
     for i in range(len(data)):
         cur.execute('select username,headurl from user where userid = %s', (data[i]['userid']))
@@ -84,10 +82,10 @@ def gaze():
     return res
 
 #消息中心
-@app.route('/massage')
-def massage():
+@app.route('/message')
+def message():
     userid=session.get("userid")
-    db = pymysql.connect('localhost', 'root', '123456', 'lixiaohuan', charset='utf8',
+    db = pymysql.connect('localhost', 'lin', '123456', 'lixiaohuan', charset='utf8',
                          cursorclass=pymysql.cursors.DictCursor)
     cur = db.cursor()
     cur.execute('select articleid from article where userid = %s', (userid))
@@ -95,24 +93,26 @@ def massage():
     aid=""
     for i in range(len(articleid)):
         aid=aid+articleid[i][articleid]+','
-    aid=aid[0:-1]
-    cur.execute('select * from comment where articleid = %s desc limit 10', (aid))
-    data = cur.fetchall()
-    for i in range(len(data)):
-        cur.execute('select username,headurl from user where userid = %s', (data[i]["userid"]))
-        result=cur.fetchone()
-        data[i].setdefault('username', result["username"])
-        data[i].setdefault('headurl', result["headurl"])
-    db.close()
-    cur.close()
-    res = make_response(render_template('', data=data))
-    return res
+    if aid:
+        aid=aid[0:-1]
+        cur.execute('select * from comment where articleid in %s desc limit 10', (aid))
+        data = cur.fetchall()
+        if data:
+            for i in range(len(data)):
+                cur.execute('select username,headurl from user where userid = %s', (data[i]["userid"]))
+                result=cur.fetchone()
+                data[i].setdefault('username', result["username"])
+                data[i].setdefault('headurl', result["headurl"])
+                db.close()
+                cur.close()
+                return render_template('information.html', data=data)
+    return render_template('information.html')
 
 #我的粉丝
 @app.route('/fans')
 def fans():
     userid = session.get("userid")
-    db = pymysql.connect('localhost', 'root', '123456', 'lixiaohuan', charset='utf8',
+    db = pymysql.connect('localhost', 'lin', '123456', 'lixiaohuan', charset='utf8',
                          cursorclass=pymysql.cursors.DictCursor)
     cur = db.cursor()
     cur.execute('select fans from user where userid = %s', (userid))
@@ -129,7 +129,7 @@ def fans():
 @app.route('/fallow')
 def fallow():
     userid = session.get("userid")
-    db = pymysql.connect('localhost', 'root', '123456', 'lixiaohuan', charset='utf8',
+    db = pymysql.connect('localhost', 'lin', '123456', 'lixiaohuan', charset='utf8',
                          cursorclass=pymysql.cursors.DictCursor)
     cur = db.cursor()
     cur.execute('select fallow from user where userid = %s', (userid))
@@ -149,7 +149,7 @@ def fallow():
 @app.route('/addfollow/<userid>')
 def addfollow(userid):
     myid = session.get("userid")
-    db = pymysql.connect('localhost', 'root', '123456', 'lixiaohuan', charset='utf8',
+    db = pymysql.connect('localhost', 'lin', '123456', 'lixiaohuan', charset='utf8',
                          cursorclass=pymysql.cursors.DictCursor)
     cur = db.cursor()
     #添加自己的fallow
@@ -172,7 +172,7 @@ def addfollow(userid):
 @app.route('/myarticles')
 def myarticles():
     userid = session.get("userid")
-    db = pymysql.connect('localhost', 'root', '123456', 'lixiaohuan', charset='utf8',
+    db = pymysql.connect('localhost', 'lin', '123456', 'lixiaohuan', charset='utf8',
                          cursorclass=pymysql.cursors.DictCursor)
     cur = db.cursor()
     cur.execute('select * from article where userid = %s and a_state = %s order by userid desc limit 1', (userid,1))
@@ -185,7 +185,7 @@ def myarticles():
 @app.route('/myarticles/del/<articleid>')
 def delarticles(articleid):
     userid = session.get("userid")
-    db = pymysql.connect('localhost', 'root', '123456', 'lixiaohuan', charset='utf8',
+    db = pymysql.connect('localhost', 'lin', '123456', 'lixiaohuan', charset='utf8',
                          cursorclass=pymysql.cursors.DictCursor)
     cur = db.cursor()
     cur.execute('select userid from article where articleid = %s',(articleid))
@@ -200,7 +200,7 @@ def delarticles(articleid):
 #预告提醒
 @app.route('/notice')
 def notice():
-    db = pymysql.connect('localhost', 'root', '123456', 'lixiaohuan', charset='utf8',
+    db = pymysql.connect('localhost', 'lin', '123456', 'lixiaohuan', charset='utf8',
                          cursorclass=pymysql.cursors.DictCursor)
     cur = db.cursor()
     cur.execute('select * from notice where n_state = 1 ')
@@ -219,12 +219,16 @@ def opensearch():
 def searchhistory():
     return render_template("history.html")
 
+@app.route('/focus',methods=["GET"])
+def focus():
+    return render_template("rearch1.html")
+
 #关键字搜索
 import json
 @app.route('/search',methods=["POST"])
 def search():
     keys=request.form["keys"]
-    db = pymysql.connect('localhost', 'root', '123456', 'lixiaohuan', charset='utf8',
+    db = pymysql.connect('localhost', 'lin', '123456', 'lixiaohuan', charset='utf8',
                          cursorclass=pymysql.cursors.DictCursor)
     cur = db.cursor()
     cur.execute('select * from user where find_in_set(%s,username)',(keys))
@@ -250,7 +254,7 @@ def search():
 #类别搜索
 @app.route('/search/<catename>')
 def searchcate(catename):
-    db = pymysql.connect('localhost', 'root', '123456', 'lixiaohuan', charset='utf8',
+    db = pymysql.connect('localhost', 'lin', '123456', 'lixiaohuan', charset='utf8',
                          cursorclass=pymysql.cursors.DictCursor)
     cur = db.cursor()
     cur.execute('select * from article where cateid = and exists (select cateid from category where catename=%s) desc limit 5',(catename))
@@ -270,18 +274,19 @@ def searchcate(catename):
 #文章详情
 @app.route('/article/<articleid>')
 def article(articleid):
-    db = pymysql.connect('localhost', 'root', '123456', 'lixiaohuan', charset='utf8',
+    db = pymysql.connect('localhost', 'lin', '123456', 'lixiaohuan', charset='utf8',
                          cursorclass=pymysql.cursors.DictCursor)
     cur = db.cursor()
-    cur.execute('select * from article where articleid = %s)',(articleid))
+    cur.execute('select * from article where articleid = %s',(articleid))
     data = cur.fetchall()
-    cur.execute('select catename from category where cateid =%s',(data["cateid"]))
+    print(data)
+    cur.execute('select catename from category where cateid =%s',(data[0]["cateid"]))
     catename = cur.fetchone()
     cur.execute('select * from comment where articleid = %s',(articleid))
     comment = cur.fetchall()
     db.close()
     cur.close()
-    res = make_response(render_template('', data=data,catename=catename,comment=comment))
+    res = make_response(render_template('article.html', data=data,catename=catename,comment=comment))
     return res
 
 #评论文章
@@ -289,7 +294,7 @@ def article(articleid):
 def comment(articleid):
     userid = session.get("userid")
     c_content = request.form["c_content"]
-    db = pymysql.connect('localhost', 'root', '123456', 'lixiaohuan', charset='utf8',
+    db = pymysql.connect('localhost', 'lin', '123456', 'lixiaohuan', charset='utf8',
                          cursorclass=pymysql.cursors.DictCursor)
     cur = db.cursor()
     cur.execute('insert into comment(articleid,userid,c_content) values (%s,%s,%s)',(articleid,userid,c_content))
@@ -302,7 +307,7 @@ def comment(articleid):
 @app.route('/aboutme')
 def aboutme():
     userid = session.get("userid")
-    db = pymysql.connect('localhost', 'root', '123456', 'lixiaohuan', charset='utf8',
+    db = pymysql.connect('localhost', 'lin', '123456', 'lixiaohuan', charset='utf8',
                          cursorclass=pymysql.cursors.DictCursor)
     cur = db.cursor()
     cur.execute('select * from user where userid = %s',(userid))
@@ -315,7 +320,7 @@ def aboutme():
 #查看他人资料
 @app.route('/user/<userid>')
 def user(userid):
-    db = pymysql.connect('localhost', 'root', '123456', 'lixiaohuan', charset='utf8',
+    db = pymysql.connect('localhost', 'lin', '123456', 'lixiaohuan', charset='utf8',
                          cursorclass=pymysql.cursors.DictCursor)
     cur = db.cursor()
     cur.execute('select * from user where userid = %s)', (userid))
@@ -344,7 +349,7 @@ def settingmessage():
 @app.route('/setting/myinfo',methods=["GET"])
 def opensettingmyinfo():
     userid = session.get("userid")
-    db = pymysql.connect('localhost', 'root', '123456', 'lixiaohuan', charset='utf8',
+    db = pymysql.connect('localhost', 'lin', '123456', 'lixiaohuan', charset='utf8',
                          cursorclass=pymysql.cursors.DictCursor)
     cur = db.cursor()
     cur.execute('select username,autograph,sex from user where userid = %s', (userid))
@@ -360,7 +365,7 @@ def settingmyinfo():
     username = request.form["username"]
     autograph = request.form["autograph"]
     sex = request.form["sex"]
-    db = pymysql.connect('localhost', 'root', '123456', 'lixiaohuan', charset='utf8',
+    db = pymysql.connect('localhost', 'lin', '123456', 'lixiaohuan', charset='utf8',
                          cursorclass=pymysql.cursors.DictCursor)
     cur = db.cursor()
     cur.execute('update user set username=%s,autograph=%s,sex=%s  where userid = %s', (username,autograph,sex,userid))
@@ -378,7 +383,7 @@ def login():
 def checklogin():
     usertel = request.form["usertel"]
     password = request.form["password"]
-    db = pymysql.connect('localhost', 'root', '123456', 'lixiaohuan', charset='utf8',
+    db = pymysql.connect('localhost', 'lin', '123456', 'lixiaohuan', charset='utf8',
                          cursorclass=pymysql.cursors.DictCursor)
     cur = db.cursor()
     cur.execute('select * from user where usertel=%s and password=%s',(usertel,password))
@@ -386,21 +391,24 @@ def checklogin():
     db.commit()
     db.close()
     cur.close()
-    # 用户ID
-    session["userid"] = str(result["userid"])
-    if(result["isfinished"]==0):
-        return redirect('/register/uphead')
-    elif(result["isfinished"]==1):
-        return redirect('/register/upinterest')
-    elif(result["isfinished"]==2):
-        res = make_response(redirect('/'))
-        # 登录状态
-        session["login"]="yes"
-        # 用户名
-        session["username"]=result["username"]
-        return res
+    if result:
+        # 用户ID
+        session["userid"] = str(result["userid"])
+        if(result["isfinished"]==0):
+            return redirect('/register/uphead')
+        elif(result["isfinished"]==1):
+            return redirect('/register/upinterest')
+        elif(result["isfinished"]==2):
+            res = make_response(redirect('/'))
+            # 登录状态
+            session["login"]="yes"
+            # 用户名
+            session["username"]=result["username"]
+            return res
+        else:
+             return render_template('login.html',isTure='no')
     else:
-         return render_template('login.html',isTure='no')
+        return redirect("/login")
 
 #注册
 @app.route('/register',methods=["GET"])
@@ -414,14 +422,17 @@ def register():
     repassword = request.form["repassword"] or ''
     if password != repassword or password == '' or usertel == '':
         return redirect('/register')
-    db = pymysql.connect('localhost', 'root', '123456', 'lixiaohuan', charset='utf8',
+    db = pymysql.connect('localhost', 'lin', '123456', 'lixiaohuan', charset='utf8',
                          cursorclass=pymysql.cursors.DictCursor)
     cur = db.cursor()
-    cur.execute('select * from user where usertel=%s', (usertel))
+    print(usertel)
+    cur.execute('select userid from user where usertel=%s', (usertel))
     result = cur.fetchone()
+    print(result,password,repassword)
     if result:
         return render_template('register.html',isRepeat='yse')
-    cur.execute('insert into user (usertel,username,password,isfinished) values (%s,%s,%s,%s)',(usertel,usertel,password,0))
+    cur.execute('insert into user (usertel,username,password,isfinished) values (%s,%s,%s,0)',(usertel,usertel,password))
+    db.commit()
     session["usertel"] = usertel
     return redirect('/register/uphead')
 
@@ -432,15 +443,15 @@ def openregister_uphead():
 @app.route('/register/uphead',methods=["POST"])
 def register_uphead():
     usertel = session.get('usertel')
-    db = pymysql.connect('localhost', 'root', '123456', 'lixiaohuan', charset='utf8',
+    db = pymysql.connect('localhost', 'lin', '123456', 'lixiaohuan', charset='utf8',
                          cursorclass=pymysql.cursors.DictCursor)
     cur = db.cursor()
     headurl = 'unknow'
     if usertel:
-        cur.execute('update user set headurl = %s,isfinished = %s where usertel = %s',(headurl,usertel,'1'))
+        cur.execute('update user set headurl = %s,isfinished = %s where usertel = %s',(headurl,'1',usertel))
     else:
         userid=session.get('userid')
-        cur.execute('update user set headurl = %s,isfinished = %s where userid = %s', (headurl, userid, '1'))
+        cur.execute('update user set headurl = %s,isfinished = %s where userid = %s', (headurl, '1', userid))
     db.commit()
     db.close()
     cur.close()
@@ -456,17 +467,19 @@ def register_upinterest():
     sex = request.form["sex"]
     cateids = request.form["cateids"]
     usertel = session.get('usertel') or ''
-    db = pymysql.connect('localhost', 'root', '123456', 'lixiaohuan', charset='utf8',
+    db = pymysql.connect('localhost', 'lin', '123456', 'lixiaohuan', charset='utf8',
                          cursorclass=pymysql.cursors.DictCursor)
     cur = db.cursor()
     if usertel:
         cur.execute('update user set username = %s,sex = %s,cateids = %s,isfinished = %s where usertel = %s', (username,sex,cateids,'2',usertel))
+        db.commit()
         session.pop("usertel")
         return redirect('/login')
     else:
         userid = session.get('userid')
         cur.execute('update user set username = %s,sex = %s,cateids = %s,isfinished = %s where userid = %s',
                     (username, sex, cateids, '2',userid))
+        db.commit()
         return redirect('/')
 
 #登出

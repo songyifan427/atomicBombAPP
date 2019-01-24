@@ -8,13 +8,45 @@
     <script src="../static/js/rem.js"></script>
     <link rel="stylesheet" href="../static/css/information.css">
 </head>
+<style>
+.bottom{
+    width: 100%;
+    height: 1rem;
+    background: #fefefe;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+}
+.bottom div{
+    width: 25%;
+}
+.bottom .searchbox{
+    width: 25%;
+    height: 100%;
+    border-bottom: 0.04rem solid #74affd;
+    box-sizing: border-box;
+}
+.bottom .searchboximg{
+    display: block;
+    margin-top: 0.1rem;
+    margin-left: 0.55rem;
+}
+.bottom .talk{
+    position: relative;
+}
+
+
+</style>
 <body>
     <div class="top">消 息 中 心</div>
     <div class="center">
         <div class="like">
             <div class="likeyou">
-                <a href="like.html">
-                    <img src="../static/img/图层55@2x.png" alt="">
+                <a href="/fans">
+                    <img src="../static/img/tuceng55@2x.png" alt="">
                     <div class="likes">
                         <span>喜欢·你的</span>
                         <span>LIKE YOU</span>
@@ -22,14 +54,11 @@
                 </a>
             </div>
             <div class="likeyou">
-                <a href="foreshow.html">
-                    <img src="../static/img/图层56@2x.png" alt="">
+                <a href="/notice">
+                    <img src="../static/img/tuceng56@2x.png" alt="">
                     <div class="likes">
                         <span>预告·提醒</span>
                         <span>REMIND</span>
-                    </div>
-                    <div class="tt">
-                        <div class="jj">3</div>
                     </div>
                 </a>
             </div>
@@ -42,148 +71,55 @@
             <span>评论</span>
             <span>专区</span>
         </div>
-        <div class="comments">
-            <img src="../static/img/图层43@2x.png" alt="" id="img019">
-            <div class="oth">
-                <div class="top1">
-                    <div class="color"></div>
-                    <img src="../static/img/图层57@2x.png" alt="">
-                    <div class="top2">
-                        <span>蔡小葵</span>
-                        <span>08.01</span>
-                    </div>
-                    <div class="bottom2">
-                        <div class="sons"></div>
-                        <span>回复了你： 小姐姐，真的好喜欢你推荐的咨询呦！！！</span>
-                    </div>
-                </div>
-                <div class="bottom1">
-                    <span>查看全部回复...</span>
-                    <div class="look">
-                        <div class="looks">
-                            <img src="../static/img/查看@2x.png" alt="">
-                            <span>16</span>
-                        </div>
-                        <div class="looks">
-                            <img src="../static/img/Icon_Dialogue拷贝@2x.png" alt="">
-                            <span>12</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="comments">
-                <img src="../static/img/图层43@2x.png" alt="" id="img019">
+        {% if data %}
+        {% for item in data %}
+            <div class="comments">
+                <img src="../static/img/head/{{ item.headurl }}" alt="" id="img019">
                 <div class="oth">
                     <div class="top1">
                         <div class="color"></div>
-                        <img src="../static/img/图层57@2x.png" alt="">
+                        <!-- <img src="../static/img/head/{{ item.headurl }}" alt=""> -->
                         <div class="top2">
-                            <span>蔡小葵</span>
-                            <span>08.01</span>
+                            <span>{{ item.username }}</span>
+                            <span>{{ item.c_time }}</span>
                         </div>
                         <div class="bottom2">
                             <div class="sons"></div>
-                            <span>回复了你： 小姐姐，真的好喜欢你推荐的咨询呦！！！</span>
+                            <span>回复了你： {{ c_content }}</span>
                         </div>
                     </div>
                     <div class="bottom1">
-                        <span>查看全部回复...</span>
-                        <div class="look">
-                            <div class="looks">
-                                <img src="../static/img/查看@2x.png" alt="">
-                                <span>16</span>
-                            </div>
-                            <div class="looks">
-                                <img src="../static/img/Icon_Dialogue拷贝@2x.png" alt="">
-                                <span>12</span>
-                            </div>
-                        </div>
+                        <a href="javascript:;">
+                            <span>查看完整回复...</span>
+                        </a>
                     </div>
                 </div>
             </div>
-        <div class="othercomment">
-            <span>查看其它相关评论</span>
-            <img src="../static/img/more副本2@2x.png" alt="">
-        </div>
-        <div class="comments">
-                <img src="../static/img/图层43@2x.png" alt="" id="img019">
-                <div class="oth">
-                    <div class="top1">
-                        <div class="color"></div>
-                        <img src="../static/img/图层57@2x.png" alt="">
-                        <div class="top2">
-                            <span>蔡小葵</span>
-                            <span>08.01</span>
-                        </div>
-                        <div class="bottom2">
-                            <div class="sons"></div>
-                            <span>回复了你： 小姐姐，真的好喜欢你推荐的咨询呦！！！</span>
-                        </div>
-                    </div>
-                    <div class="bottom1">
-                        <span>查看全部回复...</span>
-                        <div class="look">
-                            <div class="looks">
-                                <img src="../static/img/查看@2x.png" alt="">
-                                <span>16</span>
-                            </div>
-                            <div class="looks">
-                                <img src="../static/img/Icon_Dialogue拷贝@2x.png" alt="">
-                                <span>12</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        <div class="comments">
-                <img src="../static/img/图层43@2x.png" alt="" id="img019">
-                <div class="oth">
-                    <div class="top1">
-                        <div class="color"></div>
-                        <img src="../static/img/图层57@2x.png" alt="">
-                        <div class="top2">
-                            <span>蔡小葵</span>
-                            <span>08.01</span>
-                        </div>
-                        <div class="bottom2">
-                            <div class="sons"></div>
-                            <span>回复了你： 小姐姐，真的好喜欢你推荐的咨询呦！！！</span>
-                        </div>
-                    </div>
-                    <div class="bottom1">
-                        <span>查看全部回复...</span>
-                        <div class="look">
-                            <div class="looks">
-                                <img src="../static/img/查看@2x.png" alt="">
-                                <span>16</span>
-                            </div>
-                            <div class="looks">
-                                <img src="../static/img/Icon_Dialogue拷贝@2x.png" alt="">
-                                <span>12</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+        {% endfor %}
+        {% else %}
+            <p style="font-size: 0.25rem;display: block;line-height: 0.5rem;color: #ccc;width: 100%;text-align: center">您还没有回复</p>
+        {% endif %}
     </div>
     <div class="bottom">
         <div class="house">
-            <a href="index.html">
-                <img src="../static/img/Icon_User@2x.png" alt="">
+            <a href="/">
+                <img src="../static/img/index49.png" alt="" class="searchboximg">
             </a>
         </div>
-        <div class="fingerpost">
-            <img src="../static/img/形状49@2x.png" alt="">
+        <div class="myself">
+            <a href="/search">
+                <img src="../static/img/xinzhuang49@2x.png" alt="" class="searchboximg">
+            </a>
+        </div>
+        <div class="searchbox">
+            <a href="/message">
+                <img src="../static/img/Icon_Dialogue3@2x.png" alt="" class="searchboximg">
+            </a>
         </div>
         <div class="talk">
-            <img src="../static/img/Icon_Dialogue拷贝3@2x.png" alt="">
-            <div class="tt">
-                <div class="jj">3</div>
-            </div>
-        </div>
-        <div class="myself">
-            <img src="../static/img/Icon_User@2x.png" alt="">
+            <a href="/aboutme">
+                <img src="../static/img/Icon_User@2x.png" alt="" class="searchboximg">
+            </a>
         </div>
     </div>
 </body>

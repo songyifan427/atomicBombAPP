@@ -58,6 +58,7 @@ $(function(){
                 return String(Number(num)+1)
             })
             str=newlikearr.join(',')
+            str+=","
             $('#like').val(str)
             console.log($('#like').val())
             if(flag1 && flag2 && flag3){
