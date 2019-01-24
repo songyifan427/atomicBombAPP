@@ -8,7 +8,7 @@ def connect():
 app = Flask(__name__)
 app.secret_key="123456"
 
-#错误
+#404错误
 @app.errorhandler(404)
 def error(error):
     return render_template('404.html')
