@@ -21,5 +21,6 @@ def connect():
     return db
 ```
 mysql_username：你的数据库用户名 password：你的密码
-3.运行server.py文件
+
+5.运行server.py文件
 
