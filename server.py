@@ -63,7 +63,7 @@ def gaze():
     fallows =fallows['fallow'][0:-1]
     if not fallows:
         return render_template('index2.html')
-    cur.execute('select * from article where userid in '+fallows+' order by articleid desc limit 5')
+    cur.execute('select * from article where userid in ('+fallows+') order by articleid desc limit 5')
     data=cur.fetchall()
     for i in range(len(data)):
         cur.execute('select username,headurl from user where userid = %s', (data[i]['userid']))
@@ -224,9 +224,9 @@ def search():
     keys=request.form["keys"]
     db = connect()
     cur = db.cursor()
-    cur.execute('select * from user where find_in_set(%s,username)',(keys))
+    cur.execute('select * from user where username like "%'+keys+'%"')
     data1 = cur.fetchall()
-    cur.execute('select * from article where find_in_set(%s,title)', (keys))
+    cur.execute('select * from article where title like "%'+keys+'%"')
     data = cur.fetchall()
     db.close()
     cur.close()
@@ -269,15 +269,16 @@ def article(articleid):
     db = connect()
     cur = db.cursor()
     cur.execute('select * from article where articleid = %s',(articleid))
-    data = cur.fetchall()
-    print(data)
-    cur.execute('select catename from category where cateid =%s',(data[0]["cateid"]))
+    data = cur.fetchone()
+    cur.execute('select catename from category where cateid =%s',(data["cateid"]))
     catename = cur.fetchone()
     cur.execute('select * from comment where articleid = %s',(articleid))
     comment = cur.fetchall()
+    cur.execute('select * from user where userid = %s', (int(data["userid"])))
+    auser = cur.fetchone()
     db.close()
     cur.close()
-    res = make_response(render_template('article.html', data=data,catename=catename,comment=comment))
+    res = make_response(render_template('article.html', data=data,catename=catename,comment=comment,auname=auser))
     return res
 
 #评论文章

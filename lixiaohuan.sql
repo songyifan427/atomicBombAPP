@@ -11,7 +11,7 @@
  Target Server Version : 80012
  File Encoding         : 65001
 
- Date: 21/01/2019 18:43:24
+ Date: 24/01/2019 11:29:16
 */
 
 SET NAMES utf8mb4;
@@ -36,13 +36,15 @@ CREATE TABLE `article`  (
   INDEX `cateid`(`cateid`) USING BTREE,
   CONSTRAINT `cateid` FOREIGN KEY (`cateid`) REFERENCES `category` (`cateid`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `userid` FOREIGN KEY (`userid`) REFERENCES `user` (`userid`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE = InnoDB AUTO_INCREMENT = 3 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 4 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of article
 -- ----------------------------
-INSERT INTO `article` VALUES (1, 1, 1, '2019-01-21 10:23:16.224582', '马铃薯的种植方法', '别吃那个土豆那是服务器啊', 0, 1, '');
-INSERT INTO `article` VALUES (2, 2, 2, '2019-01-21 10:23:19.815874', '番茄养殖术', '我爱吃番茄', 0, 1, '');
+INSERT INTO `article` VALUES (1, 1, 1, '2019-01-24 09:41:40.426709', '马铃薯的种植方法', '别吃那个土豆那是服务器啊', 10, 1, '1.png');
+INSERT INTO `article` VALUES (2, 2, 2, '2019-01-24 09:41:44.047561', '番茄养殖术', '我爱吃番茄', 1, 1, '2.png');
+INSERT INTO `article` VALUES (3, 3, 1, '2019-01-24 09:41:50.518216', '测试内容三', '这是内容', 0, 1, '3.png');
+INSERT INTO `article` VALUES (4, 4, 2, '2019-01-24 10:43:46.955663', '测试内容四', '这是内容', 0, 1, '4.png');
 
 -- ----------------------------
 -- Table structure for category
@@ -52,7 +54,7 @@ CREATE TABLE `category`  (
   `cateid` int(5) NOT NULL AUTO_INCREMENT,
   `catename` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
   PRIMARY KEY (`cateid`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 3 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 7 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of category
@@ -103,12 +105,12 @@ CREATE TABLE `notice`  (
   `n_state` int(1) NULL DEFAULT 1,
   `noticeimgurl` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT '',
   PRIMARY KEY (`noticeid`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 2 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of notice
 -- ----------------------------
-INSERT INTO `notice` VALUES (1, '汾河公园打滚两周半', '所有人在汾河公园的人立刻打滚', '2019/1/30 19:00:00', '汾河公园', '健身,运动', 1, '');
+INSERT INTO `notice` VALUES (1, '汾河公园打滚两周半', '所有人在汾河公园的人立刻打滚', '2019/1/30 19:00:00', '汾河公园', '健身,运动', 1, 'fen.png');
 
 -- ----------------------------
 -- Table structure for user
@@ -127,13 +129,15 @@ CREATE TABLE `user`  (
   `fallow` varchar(6000) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT '',
   `fans` varchar(3000) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT '',
   `isfinished` int(1) NULL DEFAULT 0,
+  `r_time` datetime(6) NULL DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP(6),
   PRIMARY KEY (`userid`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 3 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 8 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of user
 -- ----------------------------
-INSERT INTO `user` VALUES (1, '13811111111', '123456', '测试员1', 0, NULL, 3, '啦啦啦', '1,2,3，', '2,', '2,', 2);
-INSERT INTO `user` VALUES (2, '13811111112', '123456', '测试员2', 1, NULL, 0, '叭叭叭', '1，', '1,', '1,', 2);
+INSERT INTO `user` VALUES (1, '13811111111', '123456', '测试员1', 0, 'zm78.png', 3, '我是测试员1', '1,2，', '2,3,', '2,', 2, '2019-01-24 10:18:31.927109');
+INSERT INTO `user` VALUES (2, '13811111112', '123456', '测试员2', 1, 'zm83.png', 5, '叭叭叭', '1，', '1,', '1,', 2, '2019-01-24 10:03:05.695516');
+INSERT INTO `user` VALUES (7, '13811111113', '123456', '测试员3', 1, 'default.jpg', 0, '', '1,2,6,', '', '', 2, '2019-01-24 09:36:44.556351');
 
 SET FOREIGN_KEY_CHECKS = 1;

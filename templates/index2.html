@@ -72,7 +72,7 @@
             <div class="atten">
                 <a href="/article/{{ item.articleid }}">
                     <div class="imgkuang">
-                        <img src="../static/img/articleurl/{{ item.imgurl }}" alt="">
+                        <img src="../static/img/articleurl/{{ item.imgurl }}" alt="" width="351" height="160">
                     </div>
                 </a>
                 <div class="shouxia">
@@ -81,12 +81,12 @@
                     </a>
                     <div class="Chris">
                         <div class="shang"> 
-                            <span class="name">{{ item.title }}</span>
+                            <span class="name"><a href="/article/{{ item.articleid }}" style="color:#f1f1f1">{{ item.title }}</a></span>
                             <span class="data">{{ item.a_time }}</span>
                         </div>
                         <div class="xia">
-                            <a href="/user/{{ item.userid }}">
-                                <span class="ch">{{ item.username }}</span>
+                            <a href="/user/{{ item.userid }}" style="color:#f1f1f1;font-size: 0.23rem">
+                            {{ item.username }}
                             </a>
                             <div class="other">
                                 <a href="javascript:;">
@@ -94,11 +94,11 @@
                                 </a>
                                 <div class="pinglun">
                                     <img src="../static/img/Icon_Dialogue@2x.png" alt="">
-                                    <span>{{ item.fallow }}</span>
+                                    <span>{{ item.comment_num }}</span>
                                 </div>
                                 <div class="love">
                                     <img src="../static/img/xinzhuang11@2x.png" alt="">
-                                    <span>{{ item.fans }}</span>
+                                    <span>{{ item.up }}</span>
                                 </div>
                             </div>
                         </div>

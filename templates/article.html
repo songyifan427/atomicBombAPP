@@ -13,7 +13,7 @@
 </head>
 <body>
     <div class="xiangqing">
-        <a href=""><img src="../static/img/zm61.png" alt="" class="img1"></a>
+        <a href="javascript:history.back(-1)"><img src="../static/img/zm61.png" alt="" class="img1"></a>
         <div class="tu">
             <img src="../static/img/zm71.png" alt="" class="img2">
             <div class="but"></div>
@@ -26,11 +26,11 @@
                     <li style="background: #FDE3E9"></li>
                 </div>
                 <div class="tit">
-                    <img src="../static/img/FM.png" alt="" class="fm">
-                    <img src="../static/img/zm73.png" alt="" class="zm73">
+                    <span class="le1" style="margin-left: 0">{{ data.title }}</span>
+                    <span class="le" style="margin-left: 0;font-size: 0.15rem">{{ auname.username }}</span>
                 </div>
-                <span class="le">红人颜值榜 THE FACE </span>
-                <span class="le1">{{ data.title }}</span>
+
+
                 <p class="pp">
                     {{ data.a_content }}
                 </p>
@@ -44,7 +44,7 @@
                     商品详情页，点击此链接跳转
                 </div>
                 <div class="lianjie">
-                    <a href="">https://www.baidu.com/</a>
+                    <a href="https://www.baidu.com/">https://www.baidu.com/</a>
                 </div>
             </div>
             <div class="yuan">
@@ -103,17 +103,6 @@
                     </div> 
                     <img src="../static/img/zm79.png" alt="" class="c"> 
                 </li>
-                <li>
-                    <img src="../static/img/zm81.png" alt="" class="tou">
-                    <div class="wen">解决夏季小问题！！！</div>
-                    <div class="riqi">
-                        <div class="a">
-                            <div class="b"></div>
-                        </div>
-                        &nbsp;&nbsp;2018.7.24
-                    </div> 
-                    <img src="../static/img/zm79.png" alt="" class="c">
-                </li>
             </div>
             <div class="ti1">
                     <div class="nav">
@@ -125,9 +114,10 @@
                     <a href="javascript:;"><span class="d" style="float: right;font-size: 0.21rem;">查看全部评论</span></a>
                     <a href="javascript:;"><img src="../static/img/zm82.png" alt=""></a>
             </div>
+            <div style="width: 100%">
             {% if comment %}
                 {%  for item in comment %}
-                <li>
+                <div style="background-color: #ffffff;margin: 0.15rem 0">
                     <div class="wen">{{ item.c_content }}</div>
                     <div class="riqi">
                         <div class="a">
@@ -136,11 +126,13 @@
                         &nbsp;&nbsp;{{ item.c_time }}
                     </div>
                     <img src="../static/img/zm79.png" alt="" class="c">
-                </li>
-                {% else %}
-                <span class="l">您暂时还没有任何评论呦！</span>
+                </div>
                 {%  endfor %}
+            {% else %}
+                <span class="l">您暂时还没有任何评论呦！</span>
             {% endif %}
+            </div>
+
             <div class="user">
                 <span class="name">{{ data.username }}</span>
                 <script >
@@ -157,7 +149,7 @@
                 </script>
                 <a href="javascript:addfollow();"><span class="guan">关注</span></a>
                 <div class="xiang">
-                    <img src="../static/img/zm83.png" alt="" class="touxiang">
+                    <a href="/user/{{ data.userid }}"><img src="../static/img/head/{{ auname.headurl }}" alt="" class="touxiang"></a>
                 </div>
             </div>
         </div>  

@@ -55,9 +55,13 @@
         <div class="headImg">
             <img src="../static/img/head/{{  data.headurl }}" alt="" class="hImg" width="96" height="96">
         </div>
-        <img src="../static/img/imgs/tuceng55.png" alt="" width="25" height="25" class="sexImg">
+        {% if data.sex == 0 %}
+        <img src="../static/img/imgs/man.png" alt="" width="25" height="25" class="sexImg">
+        {% else %}
+        <img src="../static/img/imgs/woman.png" alt="" width="25" height="25" class="sexImg">
+        {% endif %}
         <div class="uname">{{ data.username }}</div>
-        <div class="xj">星级</div>
+        <div class="xj">{{ data.stars }}星级</div>
         <div class="star">
             {% if data.stars == 0 %}
             <img src="../static/img/imgs/xz3.png" alt="" width="15" height="15" style="display:block;float: left;">
